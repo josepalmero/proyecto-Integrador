@@ -5,3 +5,4 @@ export const HomeMovies = () => {
     <div>HomeMovies</div>
   )
 }
+

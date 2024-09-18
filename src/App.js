@@ -1,9 +1,25 @@
+import Navebar from "./components/Navebar/Navebar";
+import { Switch, Route } from "react-router-dom";
+import Home from "./pages/Home"; 
+import Favoritos from "./pages/Favoritos";
+import Populares from "./pages/Populares";
+import Cartelera from "./pages/Cartelera";
+
 function App() {
   return (
-    <div>
-      <h1>`Mi primera app`</h1>
-    </div>
-  
+    <>
+      <Navebar />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/favoritos" component={Favoritos} />
+        <Route path="/populares" component={Populares} />
+        <Route path="/cartelera" component={Cartelera} />
+      </Switch>
+
+      <footer>
+        <p>Serena Fabbian, Josefina Palmero y Belen Gutter Corsi</p>
+      </footer>
+    </>
   );
 }
 
