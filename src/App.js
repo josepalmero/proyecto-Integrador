@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Favoritos from "./pages/Favoritos";
 import Populares from "./pages/Populares";
 import Cartelera from "./pages/Cartelera";
+import PaginaNotFound from "./pages/PaginaNotFound";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/favoritos" component={Favoritos} />
         <Route path="/populares" component={Populares} />
         <Route path="/cartelera" component={Cartelera} />
+        <Route path= "" component= {PaginaNotFound} /> 
       </Switch>
 
       <footer>
