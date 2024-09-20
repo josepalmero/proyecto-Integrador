@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-const Cartelera = () => {
-    return(
-        <div> Cartelera </div>
-    )
-=======
 import { Component } from "react";
 import { options } from "../options"
 
@@ -34,7 +28,6 @@ export class Cartelera extends Component {
         );
       };
 
->>>>>>> e51cd032e3cdaf5b2d333b4cf1a9ffbc35b33d1e
 }
 
 export default Cartelera
