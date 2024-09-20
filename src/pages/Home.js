@@ -7,12 +7,11 @@ const Home = (props) => {
 
     return(
         <>
-            <Cartelera/>
-            <Populares/>
             <SearchForm history= {props.history} />
             <Populares />
             <Cartelera />
         </>
+        //// faltan las props 
     )
 
 }
