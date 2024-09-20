@@ -12,16 +12,18 @@ class MovieDetail extends Component {
 
     render() {
 
+        const {id, img,  titulo, clasificacion, genero, estreno, duracion, sinopsis} = this.props.pelicula
+
         return (
             <article>
                 <div>
-                    <img/>
-                    <h1>Titulo</h1>
-                    <p>Clasificacion: </p>
-                    <p>Genero: </p>
-                    <p>Fecha de estreo: </p>
-                    <p>Duracion: </p>
-                    <p>Sinopsis: </p>
+                    <img src= {`https://image.tmdb.org/t/p/w342/${img}`} alt= {titulo}/>
+                    <h1>Titulo: {titulo}</h1>
+                    <p>Clasificacion: {clasificacion}</p>
+                    <p>Genero: {genero}</p>
+                    <p>Fecha de estreo: {estreno}</p>
+                    <p>Duracion: {duracion}</p>
+                    <p>Sinopsis: {sinopsis}</p>
                 </div>
             </article>
             // agregar la posibilidad de agregar a favoritos

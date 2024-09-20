@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-export class SearchFormm extends Component {
+export class SearchForm extends Component {
     
     constructor(props){
         super(props)
@@ -29,4 +29,6 @@ export class SearchFormm extends Component {
         )
     }
 }
+
+export default SearchForm
 

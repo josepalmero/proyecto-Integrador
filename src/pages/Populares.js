@@ -1,5 +1,7 @@
 const Populares = () => {
-    return
+    return(
+        <div> Populares </div>
+    )
 }
 
 export default Populares
