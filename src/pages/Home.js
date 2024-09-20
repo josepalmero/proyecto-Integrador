@@ -10,8 +10,6 @@ const Home = (props) => {
             <Cartelera/>
             <Populares/>
             <SearchForm history= {props.history} />
-            <Populares />
-            <Cartelera />
         </>
     )
 

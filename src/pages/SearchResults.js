@@ -16,24 +16,21 @@ export class SearchResults extends Component {
         })
         fetch(``) //api
         .then((response) => response.json())
-        .then((data) => {this.setState({ movies: data.results, isLoading: false })})
+        .then((data) => {this.setState({ movies: data.results })})
         .catch((error) => console.log(error));
+        this.setState({
+            isLoading: false
+        })
     }
 
     render(){
 
-        let contenido;
-
-        if (this.state.movies == "") {
-            contenido = <p>Cargando...</p>
-        } else {
-            contenido = <> {this.props.location.state.query} </>
-        }
 
         return(
 
             <div>
-                {contenido}
+                {/* {!this.state.isLoading ? {this.props.location.state.query} : <p>Cargando...</p>} */}
+                Search Results {this.props.location.state.query}
             </div>
 
         )
