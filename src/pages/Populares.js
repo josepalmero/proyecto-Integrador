@@ -1,5 +1,7 @@
 import { Component } from "react";
 import { options } from "../options"
+import HomeMovies from "../components/HomeMovies/HomeMovies";
+
 
 export class Populares extends Component {
     constructor(props){
@@ -7,24 +9,23 @@ export class Populares extends Component {
 
         this.setState = {
             movies: [],
-            isLoading: true
         }
     }
 
     ////API de populares 
     componentDidMount(){
-        this.setState({
-            isLoading: true
-        })
+       
         fetch("https://api.themoviedb.org/3/movie/popular", options) 
         .then((response) => response.json())
-        .then((data) => {this.setState({ movies: data.results, isLoading: false })})
+        .then((data) => {this.setState({ movies: data.results})})
         .catch((error) => console.log(error));
     }
 
     render(){
         return( 
-          <div>HomeMovies</div>
+          <div>
+            <HomeMovies />
+          </div>
         );
       };
 
