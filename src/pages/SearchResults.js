@@ -21,9 +21,20 @@ export class SearchResults extends Component {
     }
 
     render(){
+
+        let contenido;
+
+        if (this.state.movies == "") {
+            contenido = <p>Cargando...</p>
+        } else {
+            contenido = <> {this.props.location.state.query} </>
+        }
+
         return(
 
-            <div> SearchResults {this.props.location.state.query} </div>
+            <div>
+                {contenido}
+            </div>
 
         )
     }
