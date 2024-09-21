@@ -5,12 +5,16 @@ class HomeMovies extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      movies: []
+      movies: [],
+      isLoading: true
 
     }
   }
 
   componentDidMount() {
+    this.setState({
+      isLoading: true
+    })
 
     const url = this.props.url
 
@@ -18,6 +22,11 @@ class HomeMovies extends Component {
       .then((response) => response.json())
       .then((data) => { this.setState({ movies: data.results }) })
       .catch((error) => console.log(error));
+
+    this.setState({
+      isLoading: false
+    })
+
   }
 
   render() {

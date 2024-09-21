@@ -28,8 +28,10 @@ export class SearchResults extends Component {
 
             <div>
                 Search Results {this.props.location.state.query}
-                {/* {!this.state.isLoading ? {this.props.location.state.query} : <p>Cargando...</p>} */}
+                {/* {!this.state.isLoading ? {this.props.location.state.query} : <p>Cargando...</p>}  */} 
             </div>
+
+            // deberia ser la opcion de abajo creo pero tira error !!! --> preguntar
 
         )
     }

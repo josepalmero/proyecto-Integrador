@@ -5,13 +5,32 @@ class MovieDetail extends Component {
     constructor(props){
         super(props)
         this.state = {
+            
+            isLoading: true
 
         }
     }
 
     // agregar un fetch
+    componentDidMount() {
+        this.setState({
+            isLoading: true
+          })    
+    
+        //logica del codigo
+    
+        this.setState({
+            isLoading: false
+          })
+    
+    }
 
     render() {
+        // const movie = this.state
+
+        // if (!movie) {
+        //     <p>Cargando...</p>
+        // } CHEQUEAR 
 
         const {id, img,  titulo, clasificacion, genero, estreno, duracion, sinopsis} = this.props.pelicula
 

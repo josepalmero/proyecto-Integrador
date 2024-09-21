@@ -6,7 +6,9 @@ const Favoritos = () => {
             <section>
                 <article>
                     <h2> Favoritos </h2>
-                    <div> <Favoritos/> </div>
+                    <div> 
+                        { !this.state.isLoading ? <Favoritos/> : <p>Cargando...</p> }
+                    </div>
                 </article>
             </section>
         </>

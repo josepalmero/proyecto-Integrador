@@ -6,7 +6,22 @@ class Favoritos extends Component {
     super(props)
     this.state = {
 
+      isLoading: true
+
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      isLoading: true
+    })
+
+    //logica del codigo 
+
+    this.setState({
+      isLoading: false
+    })
+
   }
   
   render(){
