@@ -2,8 +2,8 @@ import Navebar from "./components/Navebar/Navebar";
 import { Switch, Route } from "react-router-dom";
 import Home from "./pages/Home"; 
 import Favoritos from "./pages/Favoritos";
-import Populares from "./pages/Populares";
-import Cartelera from "./pages/Cartelera";
+import VerTodas from "./pages/VerTodas";
+import Detalle from "./pages/Detalle";
 import PaginaNotFound from "./pages/PaginaNotFound";
 
 function App() {
@@ -13,8 +13,8 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/favoritos" component={Favoritos} />
-        <Route path="/populares" component={Populares} />
-        <Route path="/cartelera" component={Cartelera} />
+        <Route path="/verTodas" component={VerTodas} />
+        <Route path="/detalle/id/:id" component={Detalle} />
         <Route path= "" component= {PaginaNotFound} /> 
       </Switch>
 
