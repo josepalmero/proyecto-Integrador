@@ -5,17 +5,19 @@ import Favoritos from "./pages/Favoritos";
 import VerTodas from "./pages/VerTodas";
 import Detalle from "./pages/Detalle";
 import PaginaNotFound from "./pages/PaginaNotFound";
+import SearchResults from "./pages/SearchResults";
 
 function App() {
   return (
     <>
       <Navebar />
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/favoritos" component={Favoritos} />
-        <Route path="/verTodas" component={VerTodas} />
-        <Route path="/detalle/id/:id" component={Detalle} />
-        <Route path= "" component= {PaginaNotFound} /> 
+        <Route path="/" exact component = {Home} />
+        <Route path="/favoritos" component = {Favoritos} />
+        <Route path="/verTodas" component = {VerTodas} />
+        <Route path="/detalle/id/:id" component = {Detalle} />
+        <Route path= "/search" component = {SearchResults} /> 
+        <Route path= "" component = {PaginaNotFound} /> 
       </Switch>
 
       <footer>
