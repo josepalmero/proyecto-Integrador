@@ -6,6 +6,7 @@ import VerTodas from "./pages/VerTodas";
 import Detalle from "./pages/Detalle";
 import PaginaNotFound from "./pages/PaginaNotFound";
 import SearchResults from "./pages/SearchResults";
+import HomeMovies from "./components/HomeMovies/HomeMovies";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         <Route path= "/search" component = {SearchResults} /> 
         <Route path= "" component = {PaginaNotFound} /> 
       </Switch>
+      
+      <HomeMovies />
 
       <footer>
         <p>Serena Fabbian, Josefina Palmero y Belen Gutter Corsi</p>
