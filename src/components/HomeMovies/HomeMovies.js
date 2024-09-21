@@ -7,7 +7,8 @@ class HomeMovies extends Component {
     super(props)
     this.state = {
       movies: [],
-      isLoading: true
+      isLoading: true,
+      esFavorito: false
 
     }
   }
@@ -70,6 +71,12 @@ sacarFavoritos(){
 }
 
 
+handleShow(){
+  this.setState({
+    showDescripcion: !this.state.showDescripcion
+  })
+}
+
   
   render() {
     const { id, img, nombre, descripcion } = this.props.pelicula
@@ -78,11 +85,18 @@ sacarFavoritos(){
       <div>
         <article>
           <img src={`https://image.tmdb.org/t/p/w342/${img}`} alt={nombre} />
+
           <h1>Nombre: {nombre}</h1>
-          <p>Descripcion: {descripcion}</p>
-          <p><Link to={`/verTodas/:id`}>Ver descripcion</Link></p>
+
+          <article>
+            <p>{descripcion}</p>
+            <button onClick={()=> this.handleShow()}> {this.state.showDescripcion ? "Ver descripcion" : "Ocultar descripcion"} </button>
+          </article>
+          
           <p><Link to={`/detalle/:id`}>Ir a detalle</Link></p>
+
           <button onClick={()=>this.agregarFavoritos()}> {!this.state.esFavorito ? 'Agregar a favoritos' : 'Sacar de favoritos'} </button>
+         
           <p><Link to={`/verTodas`}>Ver mas</Link></p>
         </article>
       </div>
@@ -90,7 +104,8 @@ sacarFavoritos(){
     )
     /// formulario de busqueda
     //// la descripcion debe aprarecer oculta 
-    //// boton ver descrpcion - no estoy segura de que esa sea la ruta correcta 
+    //// que se vean 5 populares y cartelera
+    
 
   }
 
