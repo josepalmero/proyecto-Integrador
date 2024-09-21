@@ -8,9 +8,21 @@ class HomeMovies extends Component {
     this.state = {
       movies: [],
       isLoading: true,
-      esFavorito: false
+      esFavorito: false,
+      showExtra: false, 
+      showDesc:false
 
     }
+  }
+  handleShowExtra(){
+    this.setState({
+      showExtra: !this.state.showExtra
+    })
+  }
+  handleShowDesc(){
+    this.setState({
+      showDesc: !this.state.showDesc
+    })
   }
 
   componentDidMount() {
@@ -71,37 +83,35 @@ sacarFavoritos(){
 }
 
 
-handleShow(){
-  this.setState({
-    showDescripcion: !this.state.showDescripcion
-  })
-}
-
   
   render() {
-    const { id, img, nombre, descripcion } = this.props.pelicula
+    const { id, img, nombre, descripcion, extra } = this.props.pelicula
 
     return (
       <div>
         <article>
+
           <img src={`https://image.tmdb.org/t/p/w342/${img}`} alt={nombre} />
 
           <h1>Nombre: {nombre}</h1>
 
-          <article>
-            <p>{descripcion}</p>
-            <button onClick={()=> this.handleShow()}> {this.state.showDescripcion ? "Ver descripcion" : "Ocultar descripcion"} </button>
-          </article>
           
-          <p><Link to={`/detalle/:id`}>Ir a detalle</Link></p>
+          <p>{descripcion}</p>
+          <button onClick={()=> this.handleShowDesc()}> {this.state.showDesc ? "Ocultar descripcion" : "Ver descripcion"} </button>
+          
+          
+          <p><Link to={`/detalle/id/${id}`}>Ir a detalle</Link></p>
 
           <button onClick={()=>this.agregarFavoritos()}> {!this.state.esFavorito ? 'Agregar a favoritos' : 'Sacar de favoritos'} </button>
-         
-          <p><Link to={`/verTodas`}>Ver mas</Link></p>
+
+          <p>{extra}</p>
+          <button onClick={()=>this.handleShowExtra()}> {this.state.showExtra ? "Ocultar Extra" : "Ver Extra"} </button>
+
         </article>
       </div>
 
     )
+
     /// formulario de busqueda
     //// la descripcion debe aprarecer oculta 
     //// que se vean 5 populares y cartelera
