@@ -1,4 +1,4 @@
-import React, { Component }from 'react';
+import React, { Component } from 'react';
 
 class MovieDetail extends Component {
 
@@ -9,6 +9,7 @@ class MovieDetail extends Component {
         }
     }
 
+    // agregar un fetch
 
     render() {
 
@@ -21,7 +22,7 @@ class MovieDetail extends Component {
                     <h1>Titulo: {titulo}</h1>
                     <p>Clasificacion: {clasificacion}</p>
                     <p>Genero: {genero}</p>
-                    <p>Fecha de estreo: {estreno}</p>
+                    <p>Fecha de estreno: {estreno}</p>
                     <p>Duracion: {duracion}</p>
                     <p>Sinopsis: {sinopsis}</p>
                 </div>
