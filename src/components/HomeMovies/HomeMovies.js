@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { options } from "../options"
 
 class HomeMovies extends Component {
 
@@ -9,22 +10,19 @@ class HomeMovies extends Component {
       movies: [],
       isLoading: true,
       esFavorito: false,
-      showExtra: false, 
       showDesc:false
-
     }
   }
-  handleShowExtra(){
-    this.setState({
-      showExtra: !this.state.showExtra
-    })
-  }
+
+////boton del detalle
   handleShowDesc(){
     this.setState({
       showDesc: !this.state.showDesc
     })
   }
 
+  
+////nose si tenenos que borrar este componentDidMount xq hay dos
   componentDidMount() {
     this.setState({
       isLoading: true
@@ -93,27 +91,23 @@ sacarFavoritos(){
 
           <img src={`https://image.tmdb.org/t/p/w342/${img}`} alt={nombre} />
 
-          <h1>Nombre: {nombre}</h1>
+          <h1><Link to={`/detalle/id/${id}`}> {nombre} </Link></h1>
 
-          
           <p>{descripcion}</p>
           <button onClick={()=> this.handleShowDesc()}> {this.state.showDesc ? "Ocultar descripcion" : "Ver descripcion"} </button>
           
-          
           <p><Link to={`/detalle/id/${id}`}>Ir a detalle</Link></p>
 
-          <button onClick={()=>this.agregarFavoritos()}> {!this.state.esFavorito ? 'Agregar a favoritos' : 'Sacar de favoritos'} </button>
-
-          <p>{extra}</p>
-          <button onClick={()=>this.handleShowExtra()}> {this.state.showExtra ? "Ocultar Extra" : "Ver Extra"} </button>
+          <button onClick = {() => !this.state.esFavorito ? this.agregarFavorito() : this.sacarFavorito()}>
+            {!this.state.esFavorito ? 'Agregar a favoritos' : 'Sacar de favoritos'}
+          </button>
 
         </article>
       </div>
 
     )
 
-    /// formulario de busqueda
-    //// la descripcion debe aprarecer oculta 
+    /// formulario de busqueda - lo puse en navebar
     //// que se vean 5 populares y cartelera
     
 

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import SearchForm from "../SearchForm/SearchForm";
 
 const Navebar = () => {
     return(
@@ -10,6 +11,9 @@ const Navebar = () => {
                 <li><Link to="/populares">Populares</Link></li>
                 <li><Link to="/cartelera">Cartelera</Link></li>
             </ul>
+            <div>
+                <SearchForm history= {props.history} />
+            </div>
         </nav>
     )
 }
