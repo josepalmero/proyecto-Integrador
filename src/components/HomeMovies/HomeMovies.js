@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { options } from "../options" 
+import { options } from "../../options.js" 
 import "./HomeMovies.css"
 
 class HomeMovies extends Component {
