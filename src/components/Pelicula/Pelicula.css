@@ -2,7 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    color: white;
     padding: 20px;
     margin-bottom: 20px;
 }
