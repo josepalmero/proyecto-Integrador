@@ -39,16 +39,14 @@ class HomeMovies extends Component {
       <div>
         <section className="peliculas-container">
 
-          <h1> </h1>
-          <p><Link to={this.props.link}></Link>Ver Todas</p> 
+          <Link to={this.props.link}> <button>Ver todas</button> </Link>
+
           {
             this.state.movies.map((movie, idx) => <Pelicula key={movie.name + idx} infoMovie={movie} />)
           }
         </section>
       </div>
     )
-    
-    /// arreglar el link de ver todas
   }
 
 }

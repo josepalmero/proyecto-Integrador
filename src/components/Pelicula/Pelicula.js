@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import "./Pelicula.css"
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 class Pelicula extends Component {
 
@@ -7,7 +8,6 @@ class Pelicula extends Component {
         super(props)
         this.state = {
             esFavorito: false,
-            showExtra: false,
             showDesc: false
         }
     }
@@ -49,11 +49,6 @@ class Pelicula extends Component {
         })
     }
 
-    handleShowExtra(){
-        this.setState({
-          showExtra: !this.state.showExtra
-        })
-    }
     handleShowDesc(){
         this.setState({
           showDesc: !this.state.showDesc
@@ -75,8 +70,8 @@ class Pelicula extends Component {
                 
 
                 <button onClick={()=> this.handleShowDesc()}> {this.state.showDesc ? "Ocultar descripcion" : "Ver descripcion"}</button>
-                
-                <button onClick={()=> this.handleShowExtra()}> {this.state.showExtra ? "Ocultar extra" : "Ver extra"} </button>
+
+                <Link to={`/detealle/id/${this.props.id}`}> <button>Ir a Detalle</button> </Link>
                 
 
                 <button onClick = {() => !this.state.esFavorito ? this.agregarFavoritos(id) : this.sacarFavoritos(id)}>
@@ -85,6 +80,7 @@ class Pelicula extends Component {
 
             </article>
         )
+        ////arreglar boton de ir a detalle
     }
 }
 
