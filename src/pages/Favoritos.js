@@ -1,35 +1,38 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import HomeMovies from "../components/HomeMovies/HomeMovies";
+
 
 class Favoritos extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            movies: []
+            movies: [],
+            isLoading: true
         }
     }
 
     componentDidMount(){
-        const parsedArray = JSON.parse(Storage)
-        // resuelve todas las promesas y despues muestra todo
-        Promise.all ( 
-            parsedArray.map((id) => {
-                fetch(`https://api.themoviedb.org/3/account/${id}/favorite`)
-                    .then(response => response.json())
-                    .then(movie => 
-                        this.state({
-                            movies: [...this.state.movies, movie] 
-                        })  // nuevo array con lo que ya tenia movies mas la nueva
-                    )
-                    .catch((error) => console.log(error))
-    
+
+        const storage = localStorage.getItem("favoritos")
+        
+        if (storage !== null) {
+            const parsedStorage = JSON.parse(storage)
+            Promise.all( 
+                parsedStorage.map((id) => 
+                    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=2e1ba77b764a76e2e48e86179135ae4d`).then((response) => response.json()))
+                ).then((data) => {
+                    this.setState({
+                        movies: data
+                    })
             })
-        )
+        }
     }
     
     render() {
         return(
             <div> 
+                <HomeMovies movies = {this.state.movies}/>
                 { !this.state.isLoading ? <p>FAVORITOS</p> : <p>Cargando...</p> }
              </div>
         )
