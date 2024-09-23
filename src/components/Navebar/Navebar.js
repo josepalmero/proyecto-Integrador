@@ -1,10 +1,11 @@
+import React from "react"
 import { Link } from "react-router-dom"
 import "./Navebar.css"
 
 const Navebar = () => {
     return(
         <nav>
-            <img src="./imagenes/logo.png" alt="" />
+            <Link to={"/"}> <img src="./imagenes/logo.png" alt="logo" /> </Link>
             <h1>Panda Movie</h1>
             <ul>
                 <li><Link to="/">Home</Link></li>
