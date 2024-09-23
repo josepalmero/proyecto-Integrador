@@ -42,28 +42,22 @@ class HomeMovies extends Component {
       .then((data) => { this.setState({ movies: data.results }) })
       .catch((error) => console.log(error));
 
+      const storage = localStorage.getItem("favoritos")
+
+      if(storage !== null){
+        const parsedArray = JSON.parse(storage)
+        const estaEnFavoritos = parsedArray.includes(this.props.movie.id)
+        this.setState({
+          esFavorito: estaEnFavoritos
+        })
+      }
+
     this.setState({
       isLoading: false
     })
 
   }
 
-  componentDidMount(){
-    const storage = localStorage.getItem("favoritos")
-    if(storage !== null){
-      const parsedArray = JSON.parse(storage)
-      const estaEnFavoritos = parsedArray.includes(this.props.movie.id)
-      this.setState({
-        esFavorito: estaEnFavoritos
-      })
-    }
-
-    this.setState({
-      isLoading: false
-    })
-
-
-  }
 
 agregarFavoritos() {
     const storage = localStorage.getItem('favoritos')
@@ -96,7 +90,7 @@ sacarFavoritos(){
 
   
   render() {
-    const { id, img, nombre, descripcion, extra } = this.props.pelicula
+    const { id, img, nombre, descripcion, extra } = this.props.movies
 
     return (
       <div>
