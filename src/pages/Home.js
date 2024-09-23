@@ -2,7 +2,7 @@ import HomeMovies from "../components/HomeMovies/HomeMovies";
 import SearchForm from "../components/SearchForm/SearchForm";
 
 
-const Home = () => {
+const Home = (props) => {
 
     return(
         <>

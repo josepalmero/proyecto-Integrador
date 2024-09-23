@@ -8,7 +8,7 @@ class Pelicula extends Component {
         this.state = {
             esFavorito: false,
             showExtra: false,
-            showDesc:false
+            showDesc: false
         }
     }
 
@@ -61,13 +61,13 @@ class Pelicula extends Component {
     }
   
     render(){
-        const { id, img, nombre, descripcion, extra } = this.props.pelicula
+        const { id, poster_path, name, overview } = this.props.infoMovie
         return (
             
             <article className='pelicula-container'> 
                 <div>
-                    <img src={`https://image.tmdb.org/t/p/w342/${img}`} alt={nombre} />
-                    <h4>Titulo pelicula</h4>
+                    <img src={`https://image.tmdb.org/t/p/w342/${poster_path}`} alt={name} />
+                    <h4>{this.props.name}</h4>
                     <p>Datos pelicula</p>
                 </div>
 

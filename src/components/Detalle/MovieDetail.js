@@ -18,7 +18,7 @@ class MovieDetail extends Component {
 
         const {id} = this.props.match.params
 
-        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=e6a0d8ba2d9778d0953077400f26f011&language=en-US`)
+        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=2e1ba77b764a76e2e48e86179135ae4d`)
             .then(response => response.json())
             .then(data => {
                 this.setState({movie: data})

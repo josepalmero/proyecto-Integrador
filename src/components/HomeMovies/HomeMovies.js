@@ -14,11 +14,8 @@ class HomeMovies extends Component {
       isLoading: true,
     }
   }
-  
-  
 
   
-////nose si tenenos que borrar este componentDidMount xq hay dos
   componentDidMount() {
     this.setState({
       isLoading: true
@@ -26,9 +23,9 @@ class HomeMovies extends Component {
 
     const url = this.props.url
 
-    fetch(url, options) // tira error este options
+    fetch(url, options) 
       .then((response) => response.json())
-      .then((data) => { this.setState({ movies: data.results }) })
+      .then((data) => { this.setState({ movies: data.results.slice(0, 5) }) })
       .catch((error) => console.log(error));
 
     this.setState({
@@ -37,22 +34,22 @@ class HomeMovies extends Component {
   }
   
   render() {
-    const { id, nombre } = this.props.pelicula
+  
     return (
       <div>
         <section className="peliculas-container">
 
-          <h1><Link to={`/detalle/id/${id}`}> {nombre} </Link></h1>
-          <p><Link to={`/verTodas`}></Link>Ver Todas</p>
+          <h1> {this.props.nombre}</h1>
+          <p><Link to={this.props.link}></Link>Ver Todas</p> 
           {
             this.state.movies.map((movie, idx) => <Pelicula key={movie.name + idx} infoMovie={movie} />)
           }
         </section>
       </div>
     )
-
-    /// formulario de busqueda - lo puse en navebar
-    //// que se vean 5 populares y cartelera
+    
+    /// arreglar el link de ver todas
+    //// que se vean 5 populares y cartelera - CHEQUEAR
   }
 
 }
