@@ -32,7 +32,7 @@ class VerTodas extends Component {
 
     handleFilterChange() {
         this.setState({
-            moviesFiltered: movies.filter(movie => movie.title.includes(this.state.filterValue)) //movies figura como not defined(?)
+            moviesFiltered: this.state.movies.filter(movie => movie.title.includes(this.state.filterValue)) //movies figura como not defined(?)
         })
     }
 

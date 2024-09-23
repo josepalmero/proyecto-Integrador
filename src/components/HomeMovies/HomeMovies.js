@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { options } from "../options" 
+import { options } from "../../options.js" 
 import "./HomeMovies.css"
 
 class HomeMovies extends Component {
@@ -11,7 +11,8 @@ class HomeMovies extends Component {
       movies: [],
       isLoading: true,
       esFavorito: false,
-      showDesc:false
+      showDesc:false,
+      showExtra: false
     }
   }
 
@@ -19,6 +20,11 @@ class HomeMovies extends Component {
   handleShowDesc(){
     this.setState({
       showDesc: !this.state.showDesc
+    })
+  }
+  handleShowExtra(){
+    this.setState({
+      showExtra: !this.state.showExtra
     })
   }
 
@@ -35,7 +41,7 @@ class HomeMovies extends Component {
       .then((response) => response.json())
       .then((data) => { this.setState({ movies: data.results }) })
       .catch((error) => console.log(error));
-    
+
     this.setState({
       isLoading: false
     })
@@ -51,6 +57,12 @@ class HomeMovies extends Component {
         esFavorito: estaEnFavoritos
       })
     }
+
+    this.setState({
+      isLoading: false
+    })
+
+
   }
 
 agregarFavoritos() {
@@ -88,7 +100,7 @@ sacarFavoritos(){
 
     return (
       <div>
-        <article className="peliculas-container">
+        <section className="peliculas-container">
 
           <img src={`https://image.tmdb.org/t/p/w342/${img}`} alt={nombre} />
 
@@ -103,7 +115,11 @@ sacarFavoritos(){
             {!this.state.esFavorito ? 'Agregar a favoritos' : 'Sacar de favoritos'}
           </button>
 
-        </article>
+          <p>{extra}</p>
+          <p><Link to={`/verTodas`}></Link>Ver Todas</p>
+         
+        </section>
+
       </div>
 
     )
