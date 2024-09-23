@@ -37,7 +37,7 @@ class HomeMovies extends Component {
   }
   
   render() {
-    const { id, img, nombre, descripcion, extra } = this.props.pelicula
+    const { id, nombre } = this.props.pelicula
     return (
       <div>
         <section className="peliculas-container">
