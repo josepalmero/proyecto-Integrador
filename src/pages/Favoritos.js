@@ -14,7 +14,7 @@ class Favoritos extends Component {
         // resuelve todas las promesas y despues muestra todo
         Promise.all ( 
             parsedArray.map((id) => {
-                fetch('url de movie')
+                fetch(`https://api.themoviedb.org/3/account/${id}/favorite`)
                     .then(response => response.json())
                     .then(movie => 
                         this.state({
