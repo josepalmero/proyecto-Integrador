@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import SearchForm from "../SearchForm/SearchForm";
 import "./Navebar.css"
 
 const Navebar = () => {
@@ -10,12 +9,11 @@ const Navebar = () => {
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/favoritos">Favoritos</Link></li>
-                <li><Link to="/verTodas">Cartelera</Link></li>
-                <li><Link to="/verTodas">Populares</Link></li>
+                <li><Link to="/cartelera">Cartelera</Link></li>
+                <li><Link to="/populares">Populares</Link></li>
             </ul>
             
         </nav>
-        // <div> <SearchForm history= {props.history} /> </div> // tira error  'props'
     )
 }
 

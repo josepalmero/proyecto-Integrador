@@ -6,7 +6,9 @@ class Pelicula extends Component {
     constructor(props){
         super(props)
         this.state = {
-            esFavorito: false
+            esFavorito: false,
+            showExtra: false,
+            showDesc: false
         }
     }
 
@@ -46,14 +48,33 @@ class Pelicula extends Component {
             esFavorito: false 
         })
     }
+
+    handleShowExtra(){
+        this.setState({
+          showExtra: !this.state.showExtra
+        })
+    }
+    handleShowDesc(){
+        this.setState({
+          showDesc: !this.state.showDesc
+        })
+    }
   
     render(){
+        const { id, poster_path, name, overview } = this.props.infoMovie
         return (
+            
             <article className='pelicula-container'> 
                 <div>
-                    <h4>Titulo pelicula</h4>
+                    <img src={`https://image.tmdb.org/t/p/w342/${poster_path}`} alt={name} />
+                    <h4>{this.props.name}</h4>
                     <p>Datos pelicula</p>
                 </div>
+
+                <button onClick={()=> this.handleShowDesc()}> {this.state.showDesc ? "Ocultar descripcion" : "Ver descripcion"} </button>
+                
+                <button onClick={()=> this.handleShowExtra()}> {this.state.showExtra ? "Ocultar extra" : "Ver extra"} </button>
+                
 
                 <button onClick = {() => !this.state.esFavorito ? this.agregarFavorito() : this.sacarFavorito()}>
                     {!this.state.esFavorito ? 'Agregar a favoritos' : 'Sacar de favoritos'}
