@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { options } from "../options"
+import { options } from "../options" 
 
 class HomeMovies extends Component {
 
@@ -30,7 +30,7 @@ class HomeMovies extends Component {
 
     const url = this.props.url
 
-    fetch(url, options)
+    fetch(url, options) // tira error este options
       .then((response) => response.json())
       .then((data) => { this.setState({ movies: data.results }) })
       .catch((error) => console.log(error));
