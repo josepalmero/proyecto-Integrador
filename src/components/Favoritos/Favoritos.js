@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./Favoritos.css"
 
 class Favoritos extends Component {
 

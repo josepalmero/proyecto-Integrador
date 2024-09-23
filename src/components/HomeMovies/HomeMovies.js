@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { options } from "../options" 
+import "./HomeMovies.css"
 
 class HomeMovies extends Component {
 
@@ -87,7 +88,7 @@ sacarFavoritos(){
 
     return (
       <div>
-        <article>
+        <article className="peliculas-container">
 
           <img src={`https://image.tmdb.org/t/p/w342/${img}`} alt={nombre} />
 

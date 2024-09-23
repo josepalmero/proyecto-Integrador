@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
+import "./MovieDetail.css"
 
 class MovieDetail extends Component {
 
     constructor(props){
         super(props)
         this.state = {
-            movie: null, // null o [] 
+            movie: null,  
             isLoading: true
         }
     }
 
     componentDidMount() {
+        this.setState({
+            isLoading: true
+          }) 
+
         const {id} = this.props.match.params
 
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=e6a0d8ba2d9778d0953077400f26f011&language=en-US`)
@@ -19,12 +24,6 @@ class MovieDetail extends Component {
                 this.setState({movie: data})
             })
             .catch(error => console.log(error))
-
-        this.setState({
-            isLoading: true
-          })    
-    
-        //logica del codigo
     
         this.setState({
             isLoading: false
