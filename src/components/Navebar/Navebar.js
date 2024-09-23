@@ -11,10 +11,9 @@ const Navebar = () => {
                 <li><Link to="/populares">Populares</Link></li>
                 <li><Link to="/cartelera">Cartelera</Link></li>
             </ul>
-            <div>
-                <SearchForm history= {props.history} />
-            </div>
+            
         </nav>
+        // <div> <SearchForm history= {props.history} /> </div> // tira error  'props'
     )
 }
 
