@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import HomeMovies from "../components/HomeMovies/HomeMovies";
+import Pelicula from "../components/Pelicula/Pelicula"
+import { options } from "../../options"
 // import VerTodas from "../components/VerTodas/VerTodas";
 
 class Populares extends Component {
@@ -15,7 +16,7 @@ class Populares extends Component {
     }
 
     componentDidMount(){
-        fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=2e1ba77b764a76e2e48e86179135ae4d&page=${this.state.actualPage}`)
+        fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=2e1ba77b764a76e2e48e86179135ae4d&page=${this.state.actualPage}`, options)
         .then(response => response.json())
         .then(data => this.setState({
             movies: data.results,
