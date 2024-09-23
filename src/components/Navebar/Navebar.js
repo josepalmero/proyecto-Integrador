@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import SearchForm from "../SearchForm/SearchForm";
+import "./Navebar.css"
 
 const Navebar = () => {
     return(

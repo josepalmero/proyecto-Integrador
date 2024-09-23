@@ -1,0 +1,8 @@
+/* Top data */
+.peliculas-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: #666;
+}

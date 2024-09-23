@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import "./Pelicula.css"
 
 class Pelicula extends Component {
 
@@ -48,7 +49,7 @@ class Pelicula extends Component {
   
     render(){
         return (
-            <article> 
+            <article className='pelicula-container'> 
                 <div>
                     <h4>Titulo pelicula</h4>
                     <p>Datos pelicula</p>
