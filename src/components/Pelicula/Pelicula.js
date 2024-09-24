@@ -41,7 +41,7 @@ class Pelicula extends Component {
     sacarFavoritos(id){
         const storage = localStorage.getItem('favoritos')
         const parsedArray = JSON.parse(storage)
-        const favoritosRestantes = parsedArray.filter(id => id !== id)
+        const favoritosRestantes = parsedArray.filter(favId => favId !== id)
         const stringArray = JSON.stringify(favoritosRestantes)
         localStorage.setItem('favoritos', stringArray)
         this.setState({ 
@@ -89,7 +89,6 @@ class Pelicula extends Component {
 
             </article>
         )
-        ////arreglar boton de ir a detalle
     }
 }
 
