@@ -12,19 +12,26 @@ class VerTodas extends Component{
         movies: [],
         filteredMovies: [],
         userValue: "",
-        actualPage: 1
+        actualPage: 1, 
+        isLoading: true
     }
 }
 
   componentDidMount(){
-      const {link} = this.props
-      fetch(`https://api.themoviedb.org/3/movie/${link}?api_key=2e1ba77b764a76e2e48e86179135ae4d&page=${this.state.actualPage}`, options)
-      .then(response => response.json())
-      .then(data => this.setState({
-          movies: data.results,
-          filteredMovies: this.state.movies.concat(data.results),
-          actualPage: this.state.actualPage + 1
-      }))
+    this.setState({
+        isLoading: true
+    })
+
+    const {link} = this.props
+    
+    fetch(`https://api.themoviedb.org/3/movie/${link}?api_key=2e1ba77b764a76e2e48e86179135ae4d&page=${this.state.actualPage}`, options)
+    .then(response => response.json())
+    .then(data => this.setState({
+        movies: data.results,
+        filteredMovies: this.state.movies.concat(data.results),
+        actualPage: this.state.actualPage + 1,
+        isLoading: false
+    }))
   }
 
   handleResetFilter(){
@@ -40,6 +47,7 @@ class VerTodas extends Component{
       .then(response => response.json())
       .then(data => {
           const moreMovies = [];
+          const movies = this.state.movies
           movies.map((movie) => moreMovies.push(movie));
           data.results.map((result) => moreMovies.push(result));
 
@@ -66,18 +74,21 @@ class VerTodas extends Component{
       
       return(
           <>
-            <div>
-              <label>Filtrar pelicula por nombre: </label>
-              <input type="text" value={userValue} onChange={(e) => this.handleFilterChange(e)} />
-            </div>
+            {!this.state.isLoading ? 
+                <div> 
+                    <label>Filtrar pelicula por nombre: </label> 
+                    <input type="text" value={userValue} onChange={(e) => this.handleFilterChange(e)} />
+                </div> : <p>Loading...</p>
+            }
 
             <button onClick={() => this.handleResetFilter()}> Resetear el filtro </button>
-            {filteredMovies.length === 0 ? (
-              <p> No se encontraron peliculas para esa busqueda </p>
-            ) : (filteredMovies.map((movies, index) => <Pelicula movies={movies} key={index} /> )
-            )}
 
-            <button onClick={() => this.handleLoadMore()}> Cargar mas ... </button>
+            {filteredMovies.length === 0 ? 
+              <p> No se encontraron peliculas para esa busqueda </p> 
+              : (filteredMovies.map((movies, index) => <Pelicula movies={movies} key={index} /> ))
+            }
+
+            <button onClick={() => this.handleLoadMore()}> Cargar Más </button>
           </>
       )
   }

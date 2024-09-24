@@ -25,7 +25,11 @@ class Favoritos extends Component {
   
   render(){
     return(
-        <div> Favoritos </div>
+      <>
+      
+        {!this.state.isLoading ? <div> Favoritos </div> : <p>Cargando...</p>}
+      
+      </>
     )
   }
 }

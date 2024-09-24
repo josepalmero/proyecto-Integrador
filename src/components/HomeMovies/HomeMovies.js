@@ -11,25 +11,20 @@ class HomeMovies extends Component {
     super(props)
     this.state = {
       movies: [],
-      isLoading: true,
     }
   }
 
   componentDidMount() {
-    this.setState({
-      isLoading: true
-    })
 
     const url = this.props.url
 
     fetch(url, options) 
       .then((response) => response.json())
-      .then((data) => { this.setState({ movies: data.results.slice(0, 5) }) })
+      .then((data) => { this.setState({ 
+        movies: data.results.slice(0, 5),
+        })})
       .catch((error) => console.log(error));
 
-    this.setState({
-      isLoading: false
-    })
   }
   
   render() {
@@ -37,8 +32,10 @@ class HomeMovies extends Component {
     return (
       <div>
         <section className="peliculas-container">
-          {
+          
+          {!this.state.movies.length > 0 ? 
             this.state.movies.map((movie, idx) => <Pelicula key={movie.name + idx} infoMovie={movie} />)
+            : <p>Cargando...</p> 
           }
 
           <Link to={this.props.link}> <button>Ver todas</button> </Link>
