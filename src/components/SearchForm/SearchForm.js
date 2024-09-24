@@ -1,7 +1,7 @@
-import { Component } from 'react'
-import "./SearchForm.css"
+import { Component } from 'react';
+import "./SearchForm.css";
 
-export class SearchForm extends Component {
+class SearchForm extends Component {
     
     constructor(props){
         super(props)
@@ -25,7 +25,7 @@ export class SearchForm extends Component {
         return (
             <div> 
                 <input onChange= {(e)=>this.handleInputChange(e)} type='text' name= 'query' value= {this.state.query} /> 
-                <button onClick={()=>this.handleInputSubmit}>Search Movie</button>
+                 <button onClick={()=>this.handleInputSubmit}>Search Movie</button>
             </div>
         )
     }

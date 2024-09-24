@@ -1,8 +1,32 @@
 .pelicula-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.pelicula-container img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.titulo h4 {
     color: white;
-    padding: 20px;
-    margin-bottom: 20px;
+    font-size: 15px;
+    margin: 10px 0;
+}
+
+button {
+    background-color: grey;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+  
+button:hover {
+    background-color: grey;
 }

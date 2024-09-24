@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import React, {Component} from 'react';
 import MovieDetail from '../components/Detalle/MovieDetail';
 
 class Detalle extends Component {
@@ -12,9 +12,11 @@ class Detalle extends Component {
 
   render() {
     return(
-      <>
-         <MovieDetail id= {this.state.id} />
-      </>
+      <div>
+        <MovieDetail id={this.state.id} />
+      </div>
+         
+      
     )
   }
 

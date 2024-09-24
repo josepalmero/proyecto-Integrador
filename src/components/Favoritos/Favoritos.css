@@ -1,0 +1,45 @@
+.favoritos-container {
+    background-color: #141414;
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+}
+
+.favoritos-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.favoritos-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.favorito-item {
+    background-color: #222;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.favorito-item img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: grey;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+  
+button:hover {
+    background-color: grey;
+}

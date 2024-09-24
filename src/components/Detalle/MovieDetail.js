@@ -7,53 +7,48 @@ class MovieDetail extends Component {
         super(props)
         this.state = {
             movie: null,  
-            isLoading: true
+            isLoading: true,
         }
     }
 
     componentDidMount() {
-        this.setState({
-            isLoading: true
-          }) 
-
-        const {id} = this.props.match.params
+        const {id} = this.props
 
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=2e1ba77b764a76e2e48e86179135ae4d`)
-            .then(response => response.json())
-            .then(data => {
-                this.setState({movie: data})
+            .then((response) => response.json())
+            .then((data) => {
+                this.setState({
+                    movie: data,
+                    isLoading: false
+                })
             })
-            .catch(error => console.log(error))
-    
-        this.setState({
-            isLoading: false
-          })
-    
+            .catch((error) => console.log(error));
+            this.setState({
+                isLoading: false
+            })
     }
 
     render() {
-        // const movie = this.state
+        const {movie} = this.state
 
-        // if (!movie) {
-        //     <p>Cargando...</p>
-        // } CHEQUEAR 
+        {/*if (!movie) {
+            <p>Cargando...</p>
+        }*/}
 
         // destructuring de la info de movie
-        const {id, img,  titulo, clasificacion, genero, estreno, duracion, sinopsis} = this.props.movie
+        const {poster_path,  title, genres, release_date, runtime, overview} = movie
 
         return (
             <article>
                 <div>
-                    <img src= {`https://image.tmdb.org/t/p/w342/${img}`} alt= {titulo}/>
-                    <h1>Titulo: {titulo}</h1>
-                    <p>Clasificacion: {clasificacion}</p>
-                    <p>Genero: {genero}</p>
-                    <p>Fecha de estreno: {estreno}</p>
-                    <p>Duracion: {duracion}</p>
-                    <p>Sinopsis: {sinopsis}</p>
+                    <img src= {`https://image.tmdb.org/t/p/w342/${poster_path}`} alt= {title}/>
+                    <h2>Titulo: {title}</h2>
+                    <p>Generos: {genres.map((genre) => genre.name).join(',')}</p>
+                    <p>Fecha de estreno: {release_date}</p>
+                    <p>Duracion: {runtime}</p>
+                    <p>Sinopsis: {overview}</p>
                 </div>
             </article>
-            // agregar la posibilidad de agregar a favoritos
         )
 
     }

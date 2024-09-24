@@ -1,5 +1,7 @@
 import { Component } from 'react'
 import "./Pelicula.css"
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import HomeMovies from '../HomeMovies/HomeMovies'
 
 class Pelicula extends Component {
 
@@ -7,7 +9,6 @@ class Pelicula extends Component {
         super(props)
         this.state = {
             esFavorito: false,
-            showExtra: false,
             showDesc: false
         }
     }
@@ -16,32 +17,32 @@ class Pelicula extends Component {
         const storage = localStorage.getItem('favoritos')
         if(storage !== null) {
             const parsedArray = JSON.parse(storage)
-            const estaEnFavoritos = parsedArray.includes(this.props.movie.id)
+            const estaEnFavoritos = parsedArray.includes(this.props.infoMovie.id)
             this.setState({ esFavorito: estaEnFavoritos })
         }
     }
 
-    agregarFavoritos() {
+    agregarFavoritos(id) {
         const storage = localStorage.getItem('favoritos')
         if (storage !== null) {
             const parsedArray = JSON.parse(storage)
-            parsedArray.push(this.props.movie.id)
+            parsedArray.push(id)
             const stringArray = JSON.stringify(parsedArray)
             localStorage.setItem('favoritos', stringArray)
         } else {
-            const primerPelicula = [this.props.movie.id]
+            const primerPelicula = [id]
             const stringArray = JSON.stringify(primerPelicula)
             localStorage.setItem('favoritos', stringArray)
         }
-        this.state({
+        this.setState({
             esFavorito: true
         })
     }
 
-    sacarFavoritos(){
+    sacarFavoritos(id){
         const storage = localStorage.getItem('favoritos')
         const parsedArray = JSON.parse(storage)
-        const favoritosRestantes = parsedArray.filter(id => id !== this.props.movie.id)
+        const favoritosRestantes = parsedArray.filter(favId => favId !== id)
         const stringArray = JSON.stringify(favoritosRestantes)
         localStorage.setItem('favoritos', stringArray)
         this.setState({ 
@@ -49,11 +50,6 @@ class Pelicula extends Component {
         })
     }
 
-    handleShowExtra(){
-        this.setState({
-          showExtra: !this.state.showExtra
-        })
-    }
     handleShowDesc(){
         this.setState({
           showDesc: !this.state.showDesc
@@ -61,25 +57,36 @@ class Pelicula extends Component {
     }
   
     render(){
-        const { id, poster_path, name, overview } = this.props.infoMovie
+        const { id, poster_path, title, overview } = this.props.infoMovie
         return (
             
-            <article className='pelicula-container'> 
+            <article> 
                 <div>
-                    <img src={`https://image.tmdb.org/t/p/w342/${poster_path}`} alt={name} />
-                    <h4>{this.props.name}</h4>
-                    <p>Datos pelicula</p>
+                    <section className='pelicula-container'>
+
+                        <div>
+                            <img src={`https://image.tmdb.org/t/p/w342/${poster_path}`} alt={title} className='img'/>
+                        </div>
+
+                        <div className='titulo'>
+                            <h4>{title}</h4>
+                        </div>
+
+                        <div>
+                            {this.state.showDesc ? <p>{overview}</p> : null }
+                             <button onClick={()=> this.handleShowDesc()}> {this.state.showDesc ? "Ocultar descripcion" : "Ver descripcion"}</button>
+                        </div>
+
+                        <Link to={`/detalle/${id}`}> <button>Ir a Detalle</button> </Link> 
+
+                        <div>
+                            <button onClick = {() => !this.state.esFavorito ? this.agregarFavoritos(id) : this.sacarFavoritos(id)}>
+                                {!this.state.esFavorito ? 'Agregar a favoritos' : 'Sacar de favoritos'}
+                            </button>
+                        </div>
+  
+                    </section>
                 </div>
-
-                <button onClick={()=> this.handleShowDesc()}> {this.state.showDesc ? "Ocultar descripcion" : "Ver descripcion"} </button>
-                
-                <button onClick={()=> this.handleShowExtra()}> {this.state.showExtra ? "Ocultar extra" : "Ver extra"} </button>
-                
-
-                <button onClick = {() => !this.state.esFavorito ? this.agregarFavorito() : this.sacarFavorito()}>
-                    {!this.state.esFavorito ? 'Agregar a favoritos' : 'Sacar de favoritos'}
-                </button>
-
             </article>
         )
     }

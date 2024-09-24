@@ -1,8 +1,20 @@
-/* Top data */
 .peliculas-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    color: #666;
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: #141414;
+}
+
+button {
+    background-color: grey;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: grey;
 }
