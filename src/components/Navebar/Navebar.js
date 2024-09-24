@@ -4,8 +4,8 @@ import "./Navebar.css"
 
 const Navebar = () => {
     return(
-        <nav>
-            <Link to={"/"}> <img src="./imagenes/logo.png" alt="logo" /> </Link>
+        <nav className="nav">
+            <Link to={"/"}> <img className= "logo" src="./imagenes/logo.png" alt="logo" /> </Link>
             <h1>Panda Movie</h1>
             <ul>
                 <li><Link to="/">Home</Link></li>

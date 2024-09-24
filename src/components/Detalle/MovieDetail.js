@@ -19,11 +19,11 @@ class MovieDetail extends Component {
         const {id} = this.props.match.params
 
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=2e1ba77b764a76e2e48e86179135ae4d`)
-            .then(response => response.json())
-            .then(data => {
+            .then((response) => response.json())
+            .then((data) => {
                 this.setState({movie: data})
             })
-            .catch(error => console.log(error))
+            .catch((error) => console.log(error))
     
         this.setState({
             isLoading: false
@@ -39,18 +39,18 @@ class MovieDetail extends Component {
         // } CHEQUEAR 
 
         // destructuring de la info de movie
-        const {id, img,  titulo, clasificacion, genero, estreno, duracion, sinopsis} = this.props.movie
+        const {poster_path,  title, clasificacion, genero, release_date, runtime, overview} = this.props.movies
 
         return (
             <article>
                 <div>
-                    <img src= {`https://image.tmdb.org/t/p/w342/${img}`} alt= {titulo}/>
-                    <h1>Titulo: {titulo}</h1>
+                    <img src= {`https://image.tmdb.org/t/p/w342/${poster_path}`} alt= {title}/>
+                    <h1>Titulo: {title}</h1>
                     <p>Clasificacion: {clasificacion}</p>
                     <p>Genero: {genero}</p>
-                    <p>Fecha de estreno: {estreno}</p>
-                    <p>Duracion: {duracion}</p>
-                    <p>Sinopsis: {sinopsis}</p>
+                    <p>Fecha de estreno: {release_date}</p>
+                    <p>Duracion: {runtime}</p>
+                    <p>Sinopsis: {overview}</p>
                 </div>
             </article>
             // agregar la posibilidad de agregar a favoritos

@@ -59,24 +59,33 @@ class Pelicula extends Component {
         const { id, poster_path, title, overview } = this.props.infoMovie
         return (
             
-            <article className='pelicula-container'> 
+            <article> 
                 <div>
-                    <img src={`https://image.tmdb.org/t/p/w342/${poster_path}`} alt={title} />
-                    <h4>{title}</h4>
+                    <section className='pelicula-container'>
+
+                        <div>
+                            <img src={`https://image.tmdb.org/t/p/w342/${poster_path}`} alt={title} className='img'/>
+                        </div>
+
+                        <div className='titulo'>
+                            <h4>{title}</h4>
+                        </div>
+
+                        <div>
+                            {this.state.showDesc ? <p>{overview}</p> : null }
+                             <button onClick={()=> this.handleShowDesc()}> {this.state.showDesc ? "Ocultar descripcion" : "Ver descripcion"}</button>
+                        </div>
+
+                        <Link to={`/detealle/id/${this.props.id}`}> <button>Ir a Detalle</button> </Link>
+
+                        <div>
+                            <button onClick = {() => !this.state.esFavorito ? this.agregarFavoritos(id) : this.sacarFavoritos(id)}>
+                                {!this.state.esFavorito ? 'Agregar a favoritos' : 'Sacar de favoritos'}
+                            </button>
+                        </div>
+  
+                    </section>
                 </div>
-
-
-                {this.state.showDesc ? <p>{overview}</p> : null }
-                
-
-                <button onClick={()=> this.handleShowDesc()}> {this.state.showDesc ? "Ocultar descripcion" : "Ver descripcion"}</button>
-
-                <Link to={`/detealle/id/${this.props.id}`}> <button>Ir a Detalle</button> </Link>
-                
-
-                <button onClick = {() => !this.state.esFavorito ? this.agregarFavoritos(id) : this.sacarFavoritos(id)}>
-                    {!this.state.esFavorito ? 'Agregar a favoritos' : 'Sacar de favoritos'}
-                </button>
 
             </article>
         )

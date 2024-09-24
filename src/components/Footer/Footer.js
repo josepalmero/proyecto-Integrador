@@ -3,7 +3,9 @@ import React from "react";
 const Footer = () => {
     return(
         <footer>
-             <p>Serena Fabbian, Josefina Palmero y Belen Gutter Corsi</p>
+            <div >
+                <p>Serena Fabbian, Josefina Palmero y Belen Gutter Corsi</p>
+            </div>
         </footer>
 
     )
