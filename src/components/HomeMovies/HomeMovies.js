@@ -15,7 +15,6 @@ class HomeMovies extends Component {
     }
   }
 
-  
   componentDidMount() {
     this.setState({
       isLoading: true

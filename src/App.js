@@ -23,7 +23,7 @@ function App() {
           <Route path="/favoritos" component = {Favoritos} />
           <Route path="/populares" component = {Populares} />
           <Route path="/cartelera" component = {Cartelera} />
-          <Route path="/detalle/id/:id" component = {Detalle} />
+          <Route path="/detalle/:id" component = {Detalle} />
           <Route path= "/search" component = {SearchResults} /> 
           <Route path= "" component = {PaginaNotFound} /> 
         </Switch>
