@@ -1,3 +1,4 @@
+import React from "react";
 import VerTodas from "../components/VerTodas/VerTodas";
 
 const Cartelera = () => {
