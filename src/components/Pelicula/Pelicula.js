@@ -77,7 +77,7 @@ class Pelicula extends Component {
                              <button onClick={()=> this.handleShowDesc()}> {this.state.showDesc ? "Ocultar descripcion" : "Ver descripcion"}</button>
                         </div>
 
-                        <Link to={`/detalle/${id}`}> <button>Ir a Detalle</button> </Link>
+                        <Link to={`/detalle/${id}`}> <button>Ir a Detalle</button> </Link> 
 
                         <div>
                             <button onClick = {() => !this.state.esFavorito ? this.agregarFavoritos(id) : this.sacarFavoritos(id)}>
