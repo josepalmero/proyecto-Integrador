@@ -17,7 +17,8 @@ class VerTodas extends Component{
 }
 
   componentDidMount(){
-      fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=2e1ba77b764a76e2e48e86179135ae4d&page=${this.state.actualPage}`, options)
+      const {link} = this.props
+      fetch(`https://api.themoviedb.org/3/movie/${link}?api_key=2e1ba77b764a76e2e48e86179135ae4d&page=${this.state.actualPage}`, options)
       .then(response => response.json())
       .then(data => this.setState({
           movies: data.results,
@@ -34,7 +35,8 @@ class VerTodas extends Component{
   }
 
   handleLoadMore(){
-      fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=2e1ba77b764a76e2e48e86179135ae4d&page=${this.state.actualPage}`) 
+      const {link} = this.props
+      fetch(`https://api.themoviedb.org/3/movie/${link}?api_key=2e1ba77b764a76e2e48e86179135ae4d&page=${this.state.actualPage}`, options) 
       .then(response => response.json())
       .then(data => {
           const moreMovies = [];
