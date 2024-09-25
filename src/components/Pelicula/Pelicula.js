@@ -17,7 +17,7 @@ class Pelicula extends Component {
         const storage = localStorage.getItem('favoritos')
         if(storage !== null) {
             const parsedArray = JSON.parse(storage)
-            const estaEnFavoritos = parsedArray.includes(this.props.infoMovie.id)
+            const estaEnFavoritos = parsedArray.includes(this.props.id)
             this.setState({ esFavorito: estaEnFavoritos })
         }
     }
@@ -42,7 +42,7 @@ class Pelicula extends Component {
     sacarFavoritos(id){
         const storage = localStorage.getItem('favoritos')
         const parsedArray = JSON.parse(storage)
-        const favoritosRestantes = parsedArray.filter(favId => favId !== id)
+        const favoritosRestantes = parsedArray.filter(favId => favId !== this.props.infoMovie.id)
         const stringArray = JSON.stringify(favoritosRestantes)
         localStorage.setItem('favoritos', stringArray)
         this.setState({ 
@@ -58,6 +58,14 @@ class Pelicula extends Component {
   
     render(){
         const { id, poster_path, title, overview } = this.props.infoMovie
+        // const infoMovie = this.props;
+
+        // if (!infoMovie) {
+        //     return <div>Película no encontrada</div>; // Manejo de error 
+        // }
+
+        // const { id, poster_path, title, overview } = infoMovie;
+
         return (
             
             <article> 

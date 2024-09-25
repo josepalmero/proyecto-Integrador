@@ -24,10 +24,10 @@ class HomeMovies extends Component {
 
     fetch(url, options) 
       .then((response) => response.json())
-      .then((data) => { this.setState({ 
+      .then((data) => this.setState({ 
         movies: data.results.slice(0, 5),
         isLoading: false
-        })})
+        }))
       .catch((error) => console.log(error));
 
   }

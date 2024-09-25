@@ -20,12 +20,12 @@ class MovieDetail extends Component {
 
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=2e1ba77b764a76e2e48e86179135ae4d`)
             .then((response) => response.json())
-            .then((data) => {
+            .then((data) => 
                 this.setState({
                     movie: data,
                     isLoading: false
                 })
-            })
+            )
             .catch((error) => console.log(error));
             
     }
@@ -40,7 +40,7 @@ class MovieDetail extends Component {
             <article>
                 {!this.state.isLoading ? 
                     <div>
-                        <img src= {`https://image.tmdb.org/t/p/w342/${poster_path}`} alt= {title}/>
+                        <img src= {`https://image.tmdb.org/t/p/w342/${this.state.movie.poster_path}`} alt= {title}/>
                         <h2>Titulo: {title}</h2>
                         <p>Generos: {genres.map((genre) => genre.name).join(',')}</p>
                         <p>Fecha de estreno: {release_date}</p>

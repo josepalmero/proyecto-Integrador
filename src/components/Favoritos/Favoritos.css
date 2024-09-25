@@ -44,9 +44,3 @@ button:hover {
     background-color: grey;
 }
 
-.loader {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #111;
-    color: #999;
-}
