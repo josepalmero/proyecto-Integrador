@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import "./Pelicula.css"
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
-import HomeMovies from '../HomeMovies/HomeMovies'
+
 
 class Pelicula extends Component {
 
@@ -87,7 +87,7 @@ class Pelicula extends Component {
 
                         <Link to={`/detalle/${id}`}> <button>Ir a Detalle</button> </Link> 
 
-                        <div>
+                        <div className='desc'>
                             <button onClick = {() => !this.state.esFavorito ? this.agregarFavoritos(id) : this.sacarFavoritos(id)}>
                                 {!this.state.esFavorito ? 'Agregar a favoritos' : 'Sacar de favoritos'}
                             </button>

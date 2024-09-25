@@ -41,13 +41,15 @@ class MovieDetail extends Component {
         const {poster_path,  title, genres, release_date, runtime, overview} = movie
 
         return (
-            <article>
-                <img src= {`https://image.tmdb.org/t/p/w342/${poster_path}`} alt= {title}/>
-                <h2>Titulo: {title}</h2>
-                <p>Generos: {genres.map((genre) => genre.name).join(',')}</p>
-                <p>Fecha de estreno: {release_date}</p>
-                <p>Duracion: {runtime} minutos</p>
-                <p>Sinopsis: {overview}</p>
+            <article className="movie-detail-container">
+                <section className='movie-detail'>
+                    <img src= {`https://image.tmdb.org/t/p/w342/${poster_path}`} alt= {title} className='img'/>
+                    <h2 className='h2'>Titulo: {title}</h2>
+                    <p className='p'>Generos: {genres.map((genre) => genre.name).join(',')}</p>
+                    <p lassName='p'>Fecha de estreno: {release_date}</p>
+                    <p lassName='p'>Duracion: {runtime} minutos</p>
+                    <p lassName='p'>Sinopsis: {overview}</p>
+                </section>   
             </article>
         )
 
