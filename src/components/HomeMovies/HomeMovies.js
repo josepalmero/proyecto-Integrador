@@ -41,8 +41,6 @@ class HomeMovies extends Component {
           {!this.state.isLoading ? 
             this.state.movies.map((movie, idx) => <Pelicula key={movie.name + idx} infoMovie={movie} />)            
             : <p>Cargando...</p>
-
- 
           }
           
           <Link to={this.props.link}> <button>Ver todas</button> </Link>
