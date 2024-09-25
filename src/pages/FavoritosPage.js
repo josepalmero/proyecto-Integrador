@@ -23,7 +23,8 @@ class FavoritosPage extends Component {
                     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=2e1ba77b764a76e2e48e86179135ae4d`).then((response) => response.json()))
                 ).then((data) => {
                     this.setState({
-                        movies: data
+                        movies: data,
+                        isLoading: false
                     })
             })
         }

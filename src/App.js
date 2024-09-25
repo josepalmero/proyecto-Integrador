@@ -7,8 +7,8 @@ import Detalle from "./pages/Detalle";
 import PaginaNotFound from "./pages/PaginaNotFound";
 import SearchResults from "./pages/SearchResults";
 import HomeMovies from "./components/HomeMovies/HomeMovies";
-import Populares from "./components/VerTodas/VerTodas";
-import Cartelera from "./components/VerTodas/VerTodas";
+import Populares from "./pages/Populares";
+import Cartelera from "./pages/Cartelera";
 
 
 function App() {
@@ -29,6 +29,7 @@ function App() {
         </Switch>
 
       </main>
+      <HomeMovies />
 
       <Footer />
 
