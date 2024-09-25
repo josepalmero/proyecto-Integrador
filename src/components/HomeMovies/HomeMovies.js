@@ -11,10 +11,14 @@ class HomeMovies extends Component {
     super(props)
     this.state = {
       movies: [],
+      isLoading: true
     }
   }
 
   componentDidMount() {
+    this.setState({
+      isLoading: true
+    })
 
     const url = this.props.url
 
@@ -22,6 +26,7 @@ class HomeMovies extends Component {
       .then((response) => response.json())
       .then((data) => { this.setState({ 
         movies: data.results.slice(0, 5),
+        isLoading: false
         })})
       .catch((error) => console.log(error));
 
@@ -33,17 +38,20 @@ class HomeMovies extends Component {
       <div>
         <section className="peliculas-container">
           
-          {!this.state.movies.length === 0 ? 
-            <p>Cargando...</p>
-            : this.state.movies.map((movie, idx) => <Pelicula key={movie.name + idx} infoMovie={movie} />)
+          {!this.state.isLoading ? 
+            this.state.movies.map((movie, idx) => <Pelicula key={movie.name + idx} infoMovie={movie} />)            
+            : <p>Cargando...</p>
+
  
           }
-
+          
           <Link to={this.props.link}> <button>Ver todas</button> </Link>
         </section>
       </div>
     )
   }
+  
+  // si falla probar en linea 41 con {!this.state.movies.length > 0 ?
 
 }
 
