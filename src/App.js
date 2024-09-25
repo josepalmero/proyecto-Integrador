@@ -28,8 +28,6 @@ function App() {
           <Route path= "" component = {PaginaNotFound} /> 
         </Switch>
 
-        <HomeMovies />
-
       </main>
 
       <Footer />

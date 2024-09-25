@@ -10,8 +10,9 @@ nav{
 }
 
 .logo{
-    height: 50px;
-    cursor: pointer
+    height: 100px;
+    cursor: pointer;
+    border-radius: 100%;
 }
 
 h1 {

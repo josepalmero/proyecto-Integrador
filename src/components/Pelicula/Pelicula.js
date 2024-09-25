@@ -72,7 +72,7 @@ class Pelicula extends Component {
                             <h4>{title}</h4>
                         </div>
 
-                        <div>
+                        <div className='desc'>
                             {this.state.showDesc ? <p>{overview}</p> : null }
                              <button onClick={()=> this.handleShowDesc()}> {this.state.showDesc ? "Ocultar descripcion" : "Ver descripcion"}</button>
                         </div>

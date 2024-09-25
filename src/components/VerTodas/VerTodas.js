@@ -78,7 +78,7 @@ class VerTodas extends Component{
                 <div> 
                     <label>Filtrar pelicula por nombre: </label> 
                     <input type="text" value={userValue} onChange={(e) => this.handleFilterChange(e)} />
-                </div> : <p>Loading...</p>
+                </div> : <p className='loader'>Loading...</p>
             }
 
             <button onClick={() => this.handleResetFilter()}> Resetear el filtro </button>

@@ -27,10 +27,7 @@ class MovieDetail extends Component {
                 })
             })
             .catch((error) => console.log(error));
-            // this.setState({
-            //     isLoading: false
-            // })
-            // entiendo que no va acá porque ya está incluído en la linea 22, se borra?
+            
     }
 
     render() {

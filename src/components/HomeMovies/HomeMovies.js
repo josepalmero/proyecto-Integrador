@@ -28,14 +28,15 @@ class HomeMovies extends Component {
   }
   
   render() {
-  
+
     return (
       <div>
         <section className="peliculas-container">
           
-          {!this.state.movies.length > 0 ? 
-            this.state.movies.map((movie, idx) => <Pelicula key={movie.name + idx} infoMovie={movie} />)
-            : <p>Cargando...</p> 
+          {!this.state.movies.length === 0 ? 
+            <p>Cargando...</p>
+            : this.state.movies.map((movie, idx) => <Pelicula key={movie.name + idx} infoMovie={movie} />)
+ 
           }
 
           <Link to={this.props.link}> <button>Ver todas</button> </Link>

@@ -32,8 +32,8 @@ class FavoritosPage extends Component {
     render() {
         return(
             <div> 
-                <HomeMovies movies = {this.state.movies}/>
-                { !this.state.isLoading ? <p>FAVORITOS</p> : <p>Cargando...</p> }
+                <HomeMovies movies = {this.state.movies}/> 
+                { !this.state.isLoading ? <p>FAVORITOS</p> : <p className='loader'>Cargando...</p> }
              </div>
         )
     }
