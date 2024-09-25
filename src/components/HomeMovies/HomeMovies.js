@@ -24,10 +24,10 @@ class HomeMovies extends Component {
 
     fetch(url, options) 
       .then((response) => response.json())
-      .then((data) => { this.setState({ 
+      .then((data) => this.setState({ 
         movies: data.results.slice(0, 5),
         isLoading: false
-        })})
+        }))
       .catch((error) => console.log(error));
 
   }
@@ -41,8 +41,6 @@ class HomeMovies extends Component {
           {!this.state.isLoading ? 
             this.state.movies.map((movie, idx) => <Pelicula key={movie.name + idx} infoMovie={movie} />)            
             : <p>Cargando...</p>
-
- 
           }
           
           <Link to={this.props.link}> <button>Ver todas</button> </Link>
