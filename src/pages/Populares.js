@@ -40,7 +40,7 @@ class Populares extends Component {
     }
 
     handleLoadMore() {
-        fetch(`https://api.themoviedb.org/3/movie/api_key=2e1ba77b764a76e2e48e86179135ae4d&page=${this.state.actualPage}`, options)
+        fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${this.state.actualPage}`, options)
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -72,11 +72,9 @@ class Populares extends Component {
                         </div>
                         <button onClick={() => this.handleResetFilter()}> Resetear el filtro </button>
                         <VerTodas movies={this.state.filteredMovies} />
-                        <button onClick={() => this.handleLoadMore()}> Cargar Más </button>
-
                     </>
                 }
-                {/* <button onClick={() => this.handleLoadMore()}> Cargar Más </button> */}
+                <button onClick={() => this.handleLoadMore()}> Cargar Más </button>
             </>
         )
     }

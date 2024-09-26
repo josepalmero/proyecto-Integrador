@@ -9,7 +9,7 @@ class Cartelera extends Component {
         this.state = {
             movies: [],
             filteredMovies: [],
-            userValue: "",
+            filterValue: "",
             actualPage: 1,
             isLoading: true
         }
@@ -23,10 +23,9 @@ class Cartelera extends Component {
         fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${this.state.actualPage}`, options)
             .then(response => response.json())
             .then((data) => {
-                console.log(data)
                 this.setState({
                     movies: data.results,
-                    filteredMovies: this.state.movies.concat(data.results),
+                    filteredMovies: data.results,
                     actualPage: this.state.actualPage + 1,
                     isLoading: false
                 })
@@ -35,23 +34,18 @@ class Cartelera extends Component {
 
     handleResetFilter() {
         this.setState({
-            userValue: "",
+            filterValue: "",
             filteredMovies: this.state.movies
         })
     }
 
     handleLoadMore() {
-        fetch(`https://api.themoviedb.org/3/movie/api_key=2e1ba77b764a76e2e48e86179135ae4d&page=${this.state.actualPage}`, options)
+        fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${this.state.actualPage}`, options)
             .then(response => response.json())
             .then(data => {
-                const moreMovies = [];
-                const movies = this.state.movies
-                movies.map((movie) => moreMovies.push(movie));
-                data.results.map((result) => moreMovies.push(result));
-
                 this.setState({
-                    movies: moreMovies,
-                    filteredMovies: moreMovies,
+                    movies: this.state.movies.concat(data.results),
+                    filteredMovies: this.state.movies.concat(data.results),
                     actualPage: this.state.actualPage + 1
                 })
             })
@@ -69,15 +63,15 @@ class Cartelera extends Component {
     render() {
         return (
             <>
-                <h1>Peliculas En Cartelera</h1>
+                <h1>Peliculas Populares</h1>
                 {this.state.isLoading ? <p>Cargando</p> :
                     <>
                         <div>
                             <label>Filtrar pelicula por nombre: </label>
-                            <input type="text" />
+                            <input type="text" onChange={(e) => this.handleFilterChange(e)} value={this.state.filterValue} className="filtrador"/>
                         </div>
                         <button onClick={() => this.handleResetFilter()}> Resetear el filtro </button>
-                        <VerTodas movies={this.state.movies} />
+                        <VerTodas movies={this.state.filteredMovies} />
                     </>
                 }
                 <button onClick={() => this.handleLoadMore()}> Cargar Más </button>
