@@ -56,7 +56,7 @@ class Pelicula extends Component {
     }
   
     render(){
-        const { id, poster_path, title, overview } = this.props.infoMovie
+        const { id, poster_path, title, overview } = this.props.infoMovie ?? {}
 
         return (
             

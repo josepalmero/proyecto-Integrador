@@ -11,21 +11,28 @@ class SearchForm extends Component {
         }
     }
 
-    handleInputChange(e){
+    handleInputChange(e) {
         this.setState({
             query: e.target.value
         })
     }
 
-    handleInputSubmit(){
+    handleInputSubmit() {
         this.props.history.push('/search', {query: this.state.query})
+    }
+
+    handleCancelSubmit(e) {
+        e.preventDefault();
     }
 
     render() {
         return (
             <div> 
-                <input onChange= {(e)=>this.handleInputChange(e)} type='text' name= 'query' value= {this.state.query} /> 
-                <button onClick={()=>this.handleInputSubmit}>Buscar pelicula</button>
+                <form onSubmit={(e) => this.handleCancelSubmit(e)}>
+                    <input onChange= {(e) => this.handleInputChange(e)} type='text' name= 'query' value= {this.state.query} /> 
+                    <button type='button' onClick={() => this.handleInputSubmit()}>Buscar pelicula</button>
+                </form>
+                
             </div>
         )
     }

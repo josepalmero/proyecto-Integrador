@@ -77,7 +77,7 @@ class MovieDetail extends Component {
         }
 
         // destructuring de la info de movie
-        const {poster_path,  title, genres, release_date, runtime, overview, id} = movie
+        const {poster_path,  title, genres, release_date, runtime, overview, id, vote_average} = movie
 
         return (
             <article className="movie-detail-container">
@@ -87,6 +87,7 @@ class MovieDetail extends Component {
                     <p className='p'>Generos: {genres.map((genre) => genre.name).join(', ')}</p>
                     <p className='p'>Fecha de estreno: {release_date}</p>
                     <p className='p'>Duracion: {runtime} minutos</p>
+                    <p className='p'>Calificacion: {vote_average} </p>
                     <p className='sinopsis'>Sinopsis: {overview}</p>
 
                     <div>

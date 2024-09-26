@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import Pelicula from '../components/Pelicula/Pelicula';
 
 class SearchResults extends Component {
     constructor(props){
@@ -7,57 +7,59 @@ class SearchResults extends Component {
 
         this.state = {
             movies: [],
-            isLoading: true
+            isLoading: true,
+            error: null
         }
     }
 
     componentDidMount(){
-        this.setState({
-            isLoading: true
-        })
         fetch(`https://api.themoviedb.org/3/search/movie?query=${this.props.location.state.query}&api_key=2e1ba77b764a76e2e48e86179135ae4d`)
         .then((response) => response.json())
         .then((data) => {
-            this.setState({ 
-                movies: data.results, 
-                isLoading: false
-            })
+            if (data.results) {
+                this.setState({ 
+                    movies: data.results, 
+                    isLoading: false
+                })
+            } else {
+                console.error('No se encontaron resultados para su busqueda')
+                this.setState({  
+                    isLoading: false,
+                    error: 'error'
+                })
+            }
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+            console.error('error', error)
+            this.setState({ 
+                isLoading: false,
+                error: 'error'
+            })  
+        })
     }
 
     render(){
-        const {movies, isLoading} = this.state
+        const {movies, isLoading, error} = this.state
 
         return(
             <>
-                <div>
+                <section>
                     <h2> Resultados de busqueda: {this.props.location.state.query} </h2>
                     { isLoading ? (
                         <p>Cargando...</p>
+                    ) : error ? (
+                        <p>Error en la carga de resultados</p>
                     ) : (
-                        <ul>
-                            {movies.map((movie)=>(
-                                <li key={movie.id}> 
-                                    <div>
-                                        <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} alt={movie.title} className='img'/>
-                                    </div>
-
-                                    <div className='titulo'>
-                                        <h4>{movie.title}</h4>
-                                    </div>
-
-                                    <div className='desc'>
-                                        {this.state.showDesc ? <p>{movie.overview}</p> : null }
-                                        <button onClick={()=> this.handleShowDesc()}> {this.state.showDesc ? "Ocultar descripcion" : "Ver descripcion"}</button>
-                                    </div>
-
-                                    <Link to={`/detalle/${movie.id}`}> <button>Ir a Detalle</button> </Link> 
-                                </li>
-                            ))}
-                        </ul>
+                        movies.length > 0 ? (
+                            movies.map((movie) => (
+                                <Pelicula key={movie.id} infoMovie={movie} />
+                            ))
+                        ) : (
+                            <p>No se encontaron resultados para su busqueda</p>
+                        )
                     )}
-                </div>
+                </section>
+
             </>
         )
     }
