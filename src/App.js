@@ -6,7 +6,6 @@ import FavoritosPage from "./pages/FavoritosPage";
 import Detalle from "./pages/Detalle";
 import PaginaNotFound from "./pages/PaginaNotFound";
 import SearchResults from "./pages/SearchResults";
-import HomeMovies from "./components/HomeMovies/HomeMovies";
 import Populares from "./pages/Populares";
 import Cartelera from "./pages/Cartelera";
 
@@ -29,7 +28,6 @@ function App() {
         </Switch>
 
       </main>
-      <HomeMovies />
 
       <Footer />
 
