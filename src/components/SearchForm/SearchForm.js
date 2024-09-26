@@ -7,7 +7,7 @@ class SearchForm extends Component {
         super(props)
 
         this.state = {
-            query: ""
+            query: ''
         }
     }
 
@@ -25,7 +25,7 @@ class SearchForm extends Component {
         return (
             <div> 
                 <input onChange= {(e)=>this.handleInputChange(e)} type='text' name= 'query' value= {this.state.query} /> 
-                 <button onClick={()=>this.handleInputSubmit}>Search Movie</button>
+                <button onClick={()=>this.handleInputSubmit}>Buscar pelicula</button>
             </div>
         )
     }

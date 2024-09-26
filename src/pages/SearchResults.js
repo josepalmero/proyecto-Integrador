@@ -1,4 +1,5 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 class SearchResults extends Component {
     constructor(props){
@@ -26,18 +27,38 @@ class SearchResults extends Component {
     }
 
     render(){
+        const {movies, isLoading} = this.state
+
         return(
             <>
                 <div>
                     <h2> Resultados de busqueda: {this.props.location.state.query} </h2>
-                    {/* {!this.state.isLoading ? {this.props.location.state.query} : <p>Cargando...</p>} */}
+                    { isLoading ? (
+                        <p>Cargando...</p>
+                    ) : (
+                        <ul>
+                            {movies.map((movie)=>(
+                                <li key={movie.id}> 
+                                    <div>
+                                        <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} alt={movie.title} className='img'/>
+                                    </div>
+
+                                    <div className='titulo'>
+                                        <h4>{movie.title}</h4>
+                                    </div>
+
+                                    <div className='desc'>
+                                        {this.state.showDesc ? <p>{movie.overview}</p> : null }
+                                        <button onClick={()=> this.handleShowDesc()}> {this.state.showDesc ? "Ocultar descripcion" : "Ver descripcion"}</button>
+                                    </div>
+
+                                    <Link to={`/detalle/${movie.id}`}> <button>Ir a Detalle</button> </Link> 
+                                </li>
+                            ))}
+                        </ul>
+                    )}
                 </div>
             </>
-
-            
-
-            // deberia ser la opcion de abajo creo pero tira error !!! --> preguntar
-
         )
     }
 }
