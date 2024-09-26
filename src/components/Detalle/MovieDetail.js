@@ -30,14 +30,13 @@ class MovieDetail extends Component {
             
     }
 
+
     render() {
         const { movie, isLoading } = this.state
 
         if (isLoading) {
             return <p>Cargando...</p>
         }
-
-        //que es este loading ??? 
 
         // destructuring de la info de movie
         const {poster_path,  title, genres, release_date, runtime, overview} = movie

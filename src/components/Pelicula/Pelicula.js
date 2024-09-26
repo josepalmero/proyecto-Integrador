@@ -9,7 +9,8 @@ class Pelicula extends Component {
         super(props)
         this.state = {
             esFavorito: false,
-            showDesc: false
+            showDesc: false,
+            infoMovie: null
         }
     }
 
@@ -17,7 +18,7 @@ class Pelicula extends Component {
         const storage = localStorage.getItem('favoritos')
         if(storage !== null) {
             const parsedArray = JSON.parse(storage)
-            const estaEnFavoritos = parsedArray.includes(this.props.id)
+            const estaEnFavoritos = parsedArray.includes(this.props.infoMovie.id)
             this.setState({ esFavorito: estaEnFavoritos })
         }
     }
@@ -26,17 +27,15 @@ class Pelicula extends Component {
         const storage = localStorage.getItem('favoritos')
         if (storage !== null) {
             const parsedArray = JSON.parse(storage)
-            parsedArray.push(id)
+            parsedArray.push(this.props.infoMovie.id)
             const stringArray = JSON.stringify(parsedArray)
             localStorage.setItem('favoritos', stringArray)
         } else {
-            const primerPelicula = [id]
+            const primerPelicula = [this.props.movie.id]
             const stringArray = JSON.stringify(primerPelicula)
             localStorage.setItem('favoritos', stringArray)
         }
-        this.setState({
-            esFavorito: true
-        })
+        this.setState({ esFavorito: true })
     }
 
     sacarFavoritos(id){
