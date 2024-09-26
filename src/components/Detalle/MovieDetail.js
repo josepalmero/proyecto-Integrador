@@ -37,6 +37,8 @@ class MovieDetail extends Component {
             return <p>Cargando...</p>
         }
 
+        //que es este loading ??? 
+
         // destructuring de la info de movie
         const {poster_path,  title, genres, release_date, runtime, overview} = movie
 
@@ -45,10 +47,12 @@ class MovieDetail extends Component {
                 <section className='movie-detail'>
                     <img src= {`https://image.tmdb.org/t/p/w342/${poster_path}`} alt= {title} className='img'/>
                     <h2 className='h2'>Titulo: {title}</h2>
-                    <p className='p'>Generos: {genres.map((genre) => genre.name).join(',')}</p>
-                    <p lassName='p'>Fecha de estreno: {release_date}</p>
-                    <p lassName='p'>Duracion: {runtime} minutos</p>
-                    <p lassName='p'>Sinopsis: {overview}</p>
+                    <p className='p'>Generos: {genres.map((genre) => genre.name).join(', ')}</p>
+                    <p className='p'>Fecha de estreno: {release_date}</p>
+                    <p className='p'>Duracion: {runtime} minutos</p>
+                    <p className='sinopsis'>Sinopsis: </p>
+                    <p className='p'>{overview}</p>
+
                 </section>   
             </article>
         )

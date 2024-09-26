@@ -8,7 +8,9 @@
 }
 
 .movie-detail {
-    display: flex;
+    display: grid;
+    text-align: center;
+    place-items: center;
     background-color: #222;
     padding: 20px;
     border-radius: 8px;
@@ -18,7 +20,6 @@
 .movie-detail img {
     width: 300px;
     border-radius: 4px;
-    margin-right: 20px;
 }
 
 .movie-info {
@@ -34,5 +35,10 @@
 .movie-info p {
     font-size: 16px;
     margin-bottom: 8px;
+}
+
+.sinopsis {
+    font-size: 16px;
+    margin-bottom: 1px;
 }
   

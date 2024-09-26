@@ -6,7 +6,7 @@ import "./Navebar.css";
 const Navebar = (props) => {
     return(
         <nav className="nav">
-            <Link to={"/"}> <img className= "logo" src="./imagenes/logo.png" alt="logo" /> </Link>
+            <Link to={"/"}> <img className= "logo" src="../imagenes/logo.png" alt="logo" /> </Link>
             <h1>Panda Film</h1>
 
             <SearchForm history= {props.history} />

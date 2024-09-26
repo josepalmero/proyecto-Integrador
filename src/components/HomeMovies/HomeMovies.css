@@ -1,9 +1,14 @@
 .peliculas-container {
     display: grid;
+    
     gap: 20px;
     padding: 20px;
     grid-template-columns: repeat(5, 1fr);
     background-color: #141414;
+}
+
+.peliculas-container p {
+    color: white;
 }
 
 button {
@@ -17,4 +22,11 @@ button {
 
 button:hover {
     background-color: grey;
+}
+
+.loader {
+    font-size: 24px;
+    text-align: center;
+    padding: 20px 0;
+    color: black;
 }
