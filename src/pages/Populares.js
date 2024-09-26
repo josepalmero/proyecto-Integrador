@@ -68,13 +68,13 @@ class Populares extends Component {
                     <>
                         <div>
                             <label>Filtrar pelicula por nombre: </label>
-                            <input type="text" onChange={(e) => this.handleFilterChange(e)} value={this.state.filterValue} className="filtrador"/>
+                            <input type="text" onChange={(e) => this.handleFilterChange(e)} value={this.state.filterValue} />
                         </div>
                         <button onClick={() => this.handleResetFilter()}> Resetear el filtro </button>
                         <VerTodas movies={this.state.filteredMovies} />
+                        <button onClick={() => this.handleLoadMore()}> Cargar Más </button>
                     </>
                 }
-                <button onClick={() => this.handleLoadMore()}> Cargar Más </button>
             </>
         )
     }

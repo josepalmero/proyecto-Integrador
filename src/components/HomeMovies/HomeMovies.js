@@ -5,6 +5,7 @@ import "./HomeMovies.css"
 import Pelicula from "../Pelicula/Pelicula.js";
 
 
+
 class HomeMovies extends Component {
 
   constructor(props) {
@@ -42,6 +43,7 @@ class HomeMovies extends Component {
             this.state.movies.map((movie, idx) => <Pelicula key={movie.name + idx} infoMovie={movie} />)            
             : <p>Cargando...</p>
           }
+          
           
           <Link to={this.props.link}> <button>Ver todas</button> </Link>
         </section>
