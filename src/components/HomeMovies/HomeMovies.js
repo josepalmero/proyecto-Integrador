@@ -49,7 +49,6 @@ class HomeMovies extends Component {
     )
   }
   
-  // si falla probar en linea 41 con {!this.state.movies.length > 0 ?
 
 }
 

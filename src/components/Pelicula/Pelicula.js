@@ -58,13 +58,6 @@ class Pelicula extends Component {
   
     render(){
         const { id, poster_path, title, overview } = this.props.infoMovie
-        // const infoMovie = this.props;
-
-        // if (!infoMovie) {
-        //     return <div>Película no encontrada</div>; // Manejo de error 
-        // }
-
-        // const { id, poster_path, title, overview } = infoMovie;
 
         return (
             
