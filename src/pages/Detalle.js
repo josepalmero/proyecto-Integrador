@@ -15,7 +15,6 @@ class Detalle extends Component {
       <div>
         <MovieDetail id={this.state.id} />
       </div>
-         
       
     )
   }
