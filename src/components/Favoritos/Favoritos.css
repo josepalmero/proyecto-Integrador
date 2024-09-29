@@ -57,3 +57,10 @@ p {
     font-size: 2rem;
     margin-top: 50px;
 }
+
+.boton-cargarMas{
+    position: relative;
+    left: 700px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

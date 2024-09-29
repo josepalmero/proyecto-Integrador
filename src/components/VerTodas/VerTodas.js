@@ -4,7 +4,7 @@ import "./VerTodas.css"
 
 const VerTodas = (props) => {
     return(
-        <div>
+        <div className="peliculas-container">
             {props.movies.map((movie) => <Pelicula infoMovie={movie} key={movie.id} />)}
         </div>
     )
