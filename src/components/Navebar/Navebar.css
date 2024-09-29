@@ -21,7 +21,6 @@ h1 {
     font-weight: bold;
     margin-left: 20px;
     text-align: center;
-
 }
 
 ul {
@@ -70,7 +69,8 @@ button:hover {
 }
 
 .nombrePagina {
-    margin-left: -800px;
     color: white;
+    text-align: center;
+    margin-left: 10px;
 }
   
