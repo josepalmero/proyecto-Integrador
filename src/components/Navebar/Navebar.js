@@ -6,7 +6,7 @@ const Navebar = () => {
     return(
         <nav className="nav">
             <Link to={"/"}> <img className= "logo" src="../imagenes/logo.png" alt="logo" /> </Link>
-            <h1>Panda Film</h1>
+            <h1 className="nombrePagina">Panda Film</h1>
             
             <ul>
                 <li><Link to="/">Home</Link></li>

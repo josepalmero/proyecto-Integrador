@@ -34,3 +34,19 @@ button:hover {
 .desc p {
     color: grey;
 }
+
+.filtro {
+    position: relative;
+    left: 50px;
+    margin-bottom: 20px;
+}
+
+.filtro input {
+    position: relative;
+    left: 10px;
+}
+
+.filtro button {
+    position: relative;
+    left: 10px;
+}

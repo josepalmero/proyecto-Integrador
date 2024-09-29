@@ -66,13 +66,13 @@ class Cartelera extends Component {
                 <h1 className="titulo">Peliculas En Cartelera</h1>
                 {this.state.isLoading ? <p>Cargando</p> :
                     <>
-                        <div className="desc">
+                        <div className="filtro">
                             <label>Filtrar pelicula por nombre: </label>
                             <input type="text" onChange={(e) => this.handleFilterChange(e)} value={this.state.filterValue} />
+                            <button onClick={() => this.handleResetFilter()}> Resetear el filtro </button>
                         </div>
-                        <button onClick={() => this.handleResetFilter()}> Resetear el filtro </button>
                         <VerTodas movies={this.state.filteredMovies} />
-                        <button onClick={() => this.handleLoadMore()}> Cargar Más </button>
+                        <button onClick={() => this.handleLoadMore()} className="boton-cargarMas"> Cargar Más </button>
                     </>
                 }   
             </>

@@ -45,7 +45,7 @@ class HomeMovies extends Component {
           }
           
           
-          <Link to={this.props.link}> <button>Ver todas</button> </Link>
+          <Link to={this.props.link} className="boton-verTodas"> <button>Ver todas</button> </Link>
         </section>
       </div>
     )
