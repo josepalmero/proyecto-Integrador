@@ -83,12 +83,12 @@ class MovieDetail extends Component {
             <article className="movie-detail-container">
                 <section className='movie-detail'>
                     <img src= {`https://image.tmdb.org/t/p/w342/${poster_path}`} alt= {title} className='img'/>
-                    <h2 className='h2'>Titulo: {title}</h2>
-                    <p className='p'>Generos: {genres.map((genre) => genre.name).join(', ')}</p>
-                    <p className='p'>Fecha de estreno: {release_date}</p>
-                    <p className='p'>Duracion: {runtime} minutos</p>
-                    <p className='p'>Calificacion: {vote_average} </p>
-                    <p className='sinopsis'>Sinopsis: {overview}</p>
+                    <h2 >Titulo: {title}</h2>
+                    <p>Géneros: {genres.map((genre) => genre.name).join(', ')}</p>
+                    <p>Fecha de estreno: {release_date}</p>
+                    <p>Duración: {runtime} minutos</p>
+                    <p>Calificación: {vote_average} </p>
+                    <p>Sinopsis: <p className='sinopsis'>{overview}</p></p>
 
                     <div>
                         <button onClick = {() => !esFavorito ? this.agregarFavoritos(id) : this.sacarFavoritos(id)}>

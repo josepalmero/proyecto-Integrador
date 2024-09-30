@@ -64,3 +64,8 @@ p {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.noResults {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}

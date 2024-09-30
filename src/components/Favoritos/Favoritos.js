@@ -112,7 +112,7 @@ class Favoritos extends Component {
               ))}
             </ul>
           ) : (
-            <p> No tienes peliculas favoritas </p>
+            <p className='noResults'> No tienes peliculas favoritas </p>
           )
         )}
       </div>
