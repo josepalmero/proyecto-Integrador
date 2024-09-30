@@ -43,8 +43,9 @@ class SearchResults extends Component {
 
         return(
             <>
-                <section>
-                    <h2> Resultados de busqueda: {this.props.location.state.query} </h2>
+                <h2> Resultados de busqueda: {this.props.location.state.query} </h2>
+
+                <section className='result-busqueda'>
                     { isLoading ? (
                         <p>Cargando...</p>
                     ) : error ? (

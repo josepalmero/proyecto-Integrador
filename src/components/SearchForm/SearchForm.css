@@ -49,6 +49,14 @@ section {
     margin: 0 auto;
 }
 
+.result-busqueda {
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: #141414;
+}
+
 h2 {
     color: #fff;
     font-size: 28px;
