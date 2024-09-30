@@ -49,4 +49,5 @@ button:hover {
 .filtro button {
     position: relative;
     left: 10px;
+    margin-top: 20px;
 }

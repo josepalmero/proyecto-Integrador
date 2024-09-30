@@ -4,6 +4,15 @@
     padding: 20px;
     grid-template-columns: repeat(5, 1fr);
     background-color: #141414;
+    margin-bottom: 60px;
+}
+
+.verTodas-container {
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: #141414;
 }
 
 .peliculas-container p {

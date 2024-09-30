@@ -63,7 +63,7 @@ class Populares extends Component {
     render() {
         return (
             <>
-                <h1>Peliculas Populares</h1>
+                <h1 className="titulo">Peliculas Populares</h1>
                 {this.state.isLoading ? <p>Cargando</p> :
                     <>
                         <div className="filtro">

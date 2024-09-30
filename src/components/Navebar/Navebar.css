@@ -13,6 +13,7 @@ nav{
     height: 100px;
     cursor: pointer;
     border-radius: 100%;
+    margin-left: 20px;
 }
 
 h1 {
@@ -26,7 +27,7 @@ h1 {
 ul {
     list-style: none;
     display: flex;
-    margin-right: 20px;
+    margin-right: 50px;
 }
   
 ul li {
@@ -71,6 +72,11 @@ button:hover {
 .nombrePagina {
     color: white;
     text-align: center;
-    margin-left: 300px;
+    margin-left: 310px;
+}
+
+.titulo{
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
   
