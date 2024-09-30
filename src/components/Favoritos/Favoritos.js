@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import "./Favoritos.css";
+import { FaHeart } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
 
 class Favoritos extends Component {
 
@@ -102,8 +104,8 @@ class Favoritos extends Component {
                   <Link to={`/detalle/${pelicula.id}`}> <button>Ir a Detalle</button> </Link>
 
                   <div>
-                    <button onClick={() => this.sacarFavoritos(pelicula.id)}>
-                      {!pelicula.esFavorito ? 'Sacar de favoritos' : 'Agregar a favoritos'}
+                    <button onClick={() => this.sacarFavoritos(pelicula.id)} className='boton-fav'>
+                      {!pelicula.esFavorito ? <FaHeart size={20} style={{ color: 'red' }}/> : <FaRegHeart size={20}/>}
                     </button>
                   </div>
 

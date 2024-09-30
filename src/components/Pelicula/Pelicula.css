@@ -53,6 +53,10 @@ button:hover {
     margin-top: 20px;
 }
 
+.boton-fav {
+    background-color: #222;
+}
+
 
 @media (max-width: 420px) {
 

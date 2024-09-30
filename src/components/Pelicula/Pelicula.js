@@ -1,6 +1,8 @@
-import { Component } from 'react'
-import "./Pelicula.css"
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { Component } from 'react';
+import "./Pelicula.css";
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { FaHeart } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
 
 
 class Pelicula extends Component {
@@ -74,14 +76,14 @@ class Pelicula extends Component {
 
                         <div className='desc'>
                             {this.state.showDesc ? <p>{overview}</p> : null}
-                            <button onClick={() => this.handleShowDesc()}> {this.state.showDesc ? "Ocultar descripcion" : "Ver descripcion"}</button>
+                            <button onClick={() => this.handleShowDesc()}> {this.state.showDesc ? "Ocultar descripción" : "Ver descripción"}</button>
                         </div>
 
-                        <Link to={`/detalle/${id}`}> <button>Ir a Detalle</button> </Link>
+                        <Link to={`/detalle/${id}`}> <button>Ir a detalle</button> </Link>
 
-                        <div className='desc'>
-                            <button onClick={() => !this.state.esFavorito ? this.agregarFavoritos(id) : this.sacarFavoritos(id)}>
-                                {!this.state.esFavorito ? 'Agregar a favoritos' : 'Sacar de favoritos'}
+                        <div>
+                            <button onClick={() => !this.state.esFavorito ? this.agregarFavoritos(id) : this.sacarFavoritos(id)} className='boton-fav'>
+                                {!this.state.esFavorito ? <FaRegHeart size={20}/> : <FaHeart size={20} style={{ color: 'red' }}/>}
                             </button>
                         </div>
 
