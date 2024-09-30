@@ -61,18 +61,26 @@ class Cartelera extends Component {
     }
 
     render() {
+        const { isLoading, filteredMovies, filterValue} = this.state
+
         return (
             <>
                 <h1 className="titulo">Peliculas En Cartelera</h1>
-                {this.state.isLoading ? <p>Cargando</p> :
+                {isLoading ? <p>Cargando</p> :
                     <>
                         <div className="filtro">
                             <label>Filtrar pelicula por nombre: </label>
-                            <input type="text" onChange={(e) => this.handleFilterChange(e)} value={this.state.filterValue} />
+                            <input type="text" onChange={(e) => this.handleFilterChange(e)} value={filterValue} />
                             <button onClick={() => this.handleResetFilter()}> Resetear el filtro </button>
                         </div>
-                        <VerTodas movies={this.state.filteredMovies} />
-                        <button onClick={() => this.handleLoadMore()} className="boton-cargarMas"> Cargar Más </button>
+                        {filteredMovies.length > 0 ? (
+                            <> 
+                                <VerTodas movies={filteredMovies} />
+                                <button onClick={() => this.handleLoadMore()} className="boton-cargarMas"> Cargar Más </button>
+                            </>
+                        ) : (
+                            <p>No se encontraron resultados para su busqueda</p>
+                        )}
                     </>
                 }   
             </>
