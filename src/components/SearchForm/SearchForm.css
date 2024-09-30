@@ -70,3 +70,33 @@ p {
     font-size: 18px;
     color: #999;
 }
+
+
+@media (max-width: 420px) {
+    form {
+        left: 0;
+        margin: 20px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .result-busqueda {
+        grid-template-columns: 1fr;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
