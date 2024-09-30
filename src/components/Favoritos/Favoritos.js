@@ -4,7 +4,7 @@ import "./Favoritos.css";
 
 class Favoritos extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       isLoading: true,
@@ -36,22 +36,22 @@ class Favoritos extends Component {
   agregarFavoritos() {
     const storage = localStorage.getItem('favoritos')
     if (storage !== null) {
-        const parsedArray = JSON.parse(storage)
-        parsedArray.push(this.props.infoMovie.id)
-        const stringArray = JSON.stringify(parsedArray)
-        localStorage.setItem('favoritos', stringArray)
+      const parsedArray = JSON.parse(storage)
+      parsedArray.push(this.props.infoMovie.id)
+      const stringArray = JSON.stringify(parsedArray)
+      localStorage.setItem('favoritos', stringArray)
     } else {
-        const primerPelicula = [this.props.infoMovie.id]
-        const stringArray = JSON.stringify(primerPelicula)
-        localStorage.setItem('favoritos', stringArray)
+      const primerPelicula = [this.props.infoMovie.id]
+      const stringArray = JSON.stringify(primerPelicula)
+      localStorage.setItem('favoritos', stringArray)
     }
     this.setState({ esFavorito: true })
   }
 
-  sacarFavoritos(id){
+  sacarFavoritos(id) {
     const storage = localStorage.getItem('favoritos')
 
-    if(storage){
+    if (storage) {
       const parsedArray = JSON.parse(storage)
       const favoritosRestantes = parsedArray.filter(favId => favId !== id)
       const stringArray = JSON.stringify(favoritosRestantes)
@@ -59,14 +59,14 @@ class Favoritos extends Component {
 
       if (favoritosRestantes.length > 0) {
         Promise.all(
-            favoritosRestantes.map(id =>
-              fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=2e1ba77b764a76e2e48e86179135ae4d`)
-                .then(response => response.json())
-            )
+          favoritosRestantes.map(id =>
+            fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=2e1ba77b764a76e2e48e86179135ae4d`)
+              .then(response => response.json())
+          )
         ).then(data => {
-            this.setState({
-                peliculas: data
-            });
+          this.setState({
+            peliculas: data
+          });
         });
       } else {
         this.setState({
@@ -76,15 +76,15 @@ class Favoritos extends Component {
     }
   }
 
-  render(){
+  render() {
     const { peliculas } = this.state;
 
-    return(
+    return (
 
       <div>
         {this.state.isLoading ? (
-          <h2 className='cargando'> Cargando... </h2>
-        ) : ( 
+          <h2 className='cargando'>Cargando...</h2>
+        ) : (
           this.state.peliculas.length > 0 ? (
             <ul className='lista'>
               {peliculas.map((pelicula) => (
@@ -92,19 +92,19 @@ class Favoritos extends Component {
                 <section>
 
                   <div>
-                    <img src={`https://image.tmdb.org/t/p/w342/${pelicula.poster_path}`} alt={pelicula.title} className='imagen'/>
+                    <img src={`https://image.tmdb.org/t/p/w342/${pelicula.poster_path}`} alt={pelicula.title} className='imagen' />
                   </div>
 
                   <div>
                     <h4 className='nombre'>{pelicula.title}</h4>
                   </div>
-                  
-                  <Link to={`/detalle/${pelicula.id}`}> <button>Ir a Detalle</button> </Link> 
+
+                  <Link to={`/detalle/${pelicula.id}`}> <button>Ir a Detalle</button> </Link>
 
                   <div>
-                      <button onClick = {() => this.sacarFavoritos(pelicula.id)}>
-                        {!pelicula.esFavorito ? 'Sacar de favoritos' : 'Agregar a favoritos'}
-                      </button>
+                    <button onClick={() => this.sacarFavoritos(pelicula.id)}>
+                      {!pelicula.esFavorito ? 'Sacar de favoritos' : 'Agregar a favoritos'}
+                    </button>
                   </div>
 
                 </section>
@@ -112,7 +112,7 @@ class Favoritos extends Component {
               ))}
             </ul>
           ) : (
-            <p className='noResults'> No tienes peliculas favoritas </p>
+            <p className='noResults'> No tienes películas favoritas </p>
           )
         )}
       </div>

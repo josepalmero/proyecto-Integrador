@@ -1,4 +1,4 @@
-nav{
+nav {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -9,7 +9,7 @@ nav{
     width: 100%;
 }
 
-.logo{
+.logo {
     height: 100px;
     cursor: pointer;
     border-radius: 100%;
@@ -29,7 +29,7 @@ ul {
     display: flex;
     margin-right: 50px;
 }
-  
+
 ul li {
     margin: 0 10px;
 }
@@ -55,7 +55,7 @@ input[type="text"] {
     border: none;
     border-radius: 4px;
 }
-  
+
 button {
     background-color: grey;
     color: white;
@@ -64,18 +64,19 @@ button {
     margin-left: 10px;
     cursor: pointer;
 }
-  
+
 button:hover {
     background-color: grey;
 }
 
 .nombrePagina {
     color: white;
+    font-size: 30px;
     text-align: center;
-    margin-left: 310px;
+    margin-left: 300px;
 }
 
-.titulo{
+.titulo {
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -83,4 +84,53 @@ button:hover {
 .notFound {
     margin-top: 100px;
     margin-bottom: 100px;
+}
+
+.titulo-favs {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+
+@media (max-width: 420px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .logo {
+        flex-direction: column;
+        align-self: center;
+        margin-left: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    ul {
+        flex-direction: column;
+        align-self: flex-start;
+        margin-right: 0;
+        margin-top: 10px;
+    }
+
+    ul li {
+        margin: 5px 0;
+    }
+
+    .nombrePagina {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .titulo {
+        font-size: 20px;
+    }
+
+    .notFound {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
 }

@@ -3,10 +3,10 @@ import "./MovieDetail.css"
 
 class MovieDetail extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
-            movie: null,  
+            movie: null,
             isLoading: true,
             esFavorito: false
         }
@@ -17,11 +17,11 @@ class MovieDetail extends Component {
             isLoading: true,
         })
 
-        const {id} = this.props;
+        const { id } = this.props;
 
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=2e1ba77b764a76e2e48e86179135ae4d`)
             .then((response) => response.json())
-            .then((data) =>  {
+            .then((data) => {
                 this.setState({
                     movie: data,
                     isLoading: false
@@ -57,7 +57,7 @@ class MovieDetail extends Component {
         }
     }
 
-    sacarFavoritos(id){
+    sacarFavoritos(id) {
         const storage = localStorage.getItem('favoritos')
         if (storage !== null) {
             const parsedArray = JSON.parse(storage)
@@ -73,16 +73,15 @@ class MovieDetail extends Component {
         const { movie, isLoading, esFavorito } = this.state
 
         if (isLoading) {
-            return <p>Cargando...</p>
+            return <p className='cargando'>Cargando...</p>
         }
 
-        // destructuring de la info de movie
-        const {poster_path,  title, genres, release_date, runtime, overview, id, vote_average} = movie
+        const { poster_path, title, genres, release_date, runtime, overview, id, vote_average } = movie
 
         return (
             <article className="movie-detail-container">
                 <section className='movie-detail'>
-                    <img src= {`https://image.tmdb.org/t/p/w342/${poster_path}`} alt= {title} className='img'/>
+                    <img src={`https://image.tmdb.org/t/p/w342/${poster_path}`} alt={title} className='img' />
                     <h2 >Titulo: {title}</h2>
                     <p>Géneros: {genres.map((genre) => genre.name).join(', ')}</p>
                     <p>Fecha de estreno: {release_date}</p>
@@ -91,13 +90,13 @@ class MovieDetail extends Component {
                     <p>Sinopsis: <p className='sinopsis'>{overview}</p></p>
 
                     <div>
-                        <button onClick = {() => !esFavorito ? this.agregarFavoritos(id) : this.sacarFavoritos(id)}>
+                        <button onClick={() => !esFavorito ? this.agregarFavoritos(id) : this.sacarFavoritos(id)}>
                             {esFavorito ? 'Sacar de favoritos' : 'Agregar a favoritos'}
                         </button>
                     </div>
-                    
 
-                </section>   
+
+                </section>
             </article>
         )
 

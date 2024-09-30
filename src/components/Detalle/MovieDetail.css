@@ -16,7 +16,7 @@
     border-radius: 8px;
     max-width: 900px;
 }
-  
+
 .movie-detail img {
     width: 300px;
     border-radius: 4px;
@@ -26,12 +26,12 @@
     flex: 1;
     padding: 10px;
 }
-  
+
 .movie-info h2 {
     font-size: 28px;
     margin-bottom: 10px;
 }
-  
+
 .movie-info p {
     font-size: 16px;
     margin-bottom: 8px;
@@ -42,6 +42,31 @@
     margin-bottom: 1px;
 }
 
-.sinopsis{
+.sinopsis {
     margin-top: -0.1px;
-}  
+}
+
+
+@media (max-width: 420px) {
+    .movie-detail {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .movie-detail img {
+        width: 100%;
+        max-width: none;
+    }
+
+    .movie-info h2 {
+        font-size: 24px;
+    }
+
+    .movie-info p {
+        font-size: 14px;
+    }
+
+    .sinopsis {
+        font-size: 14px;
+    }
+}

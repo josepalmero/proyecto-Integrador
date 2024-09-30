@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 class Pelicula extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
             esFavorito: false,
@@ -14,9 +14,9 @@ class Pelicula extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         const storage = localStorage.getItem('favoritos')
-        if(storage !== null) {
+        if (storage !== null) {
             const parsedArray = JSON.parse(storage)
             const estaEnFavoritos = parsedArray.includes(this.props.infoMovie.id)
             this.setState({ esFavorito: estaEnFavoritos })
@@ -38,34 +38,34 @@ class Pelicula extends Component {
         this.setState({ esFavorito: true })
     }
 
-    sacarFavoritos(id){
+    sacarFavoritos(id) {
         const storage = localStorage.getItem('favoritos')
         const parsedArray = JSON.parse(storage)
         const favoritosRestantes = parsedArray.filter(favId => favId !== this.props.infoMovie.id)
         const stringArray = JSON.stringify(favoritosRestantes)
         localStorage.setItem('favoritos', stringArray)
-        this.setState({ 
-            esFavorito: false 
+        this.setState({
+            esFavorito: false
         })
     }
 
-    handleShowDesc(){
+    handleShowDesc() {
         this.setState({
-          showDesc: !this.state.showDesc
+            showDesc: !this.state.showDesc
         })
     }
-  
-    render(){
+
+    render() {
         const { id, poster_path, title, overview } = this.props.infoMovie ?? {}
 
         return (
-            
-            <article> 
+
+            <article>
                 <div>
                     <section className='pelicula-container'>
 
                         <div>
-                            <img src={`https://image.tmdb.org/t/p/w342/${poster_path}`} alt={title} className='img'/>
+                            <img src={`https://image.tmdb.org/t/p/w342/${poster_path}`} alt={title} className='img' />
                         </div>
 
                         <div className='titulo'>
@@ -73,18 +73,18 @@ class Pelicula extends Component {
                         </div>
 
                         <div className='desc'>
-                            {this.state.showDesc ? <p>{overview}</p> : null }
-                             <button onClick={()=> this.handleShowDesc()}> {this.state.showDesc ? "Ocultar descripcion" : "Ver descripcion"}</button>
+                            {this.state.showDesc ? <p>{overview}</p> : null}
+                            <button onClick={() => this.handleShowDesc()}> {this.state.showDesc ? "Ocultar descripcion" : "Ver descripcion"}</button>
                         </div>
 
-                        <Link to={`/detalle/${id}`}> <button>Ir a Detalle</button> </Link> 
+                        <Link to={`/detalle/${id}`}> <button>Ir a Detalle</button> </Link>
 
                         <div className='desc'>
-                            <button onClick = {() => !this.state.esFavorito ? this.agregarFavoritos(id) : this.sacarFavoritos(id)}>
+                            <button onClick={() => !this.state.esFavorito ? this.agregarFavoritos(id) : this.sacarFavoritos(id)}>
                                 {!this.state.esFavorito ? 'Agregar a favoritos' : 'Sacar de favoritos'}
                             </button>
                         </div>
-  
+
                     </section>
                 </div>
             </article>

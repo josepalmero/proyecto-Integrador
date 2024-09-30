@@ -43,11 +43,11 @@ class SearchResults extends Component {
 
         return (
             <>
-                <h2> Resultados de busqueda: {this.props.location.state.query} </h2>
+                <h2> Resultados de búsqueda: {this.props.location.state.query} </h2>
 
 
                 {isLoading ?
-                    <p>Cargando...</p>
+                    <p className='cargando'>Cargando...</p>
                     : error ?
                         <p>Error en la carga de resultados</p>
                         : movies.length > 0 ? 

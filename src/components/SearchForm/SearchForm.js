@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import "./SearchForm.css";
 
 class SearchForm extends Component {
-    
-    constructor(props){
+
+    constructor(props) {
         super(props)
 
         this.state = {
@@ -18,7 +18,7 @@ class SearchForm extends Component {
     }
 
     handleInputSubmit() {
-        this.props.history.push('/search', {query: this.state.query})
+        this.props.history.push('/search', { query: this.state.query })
     }
 
     handleCancelSubmit(e) {
@@ -27,12 +27,12 @@ class SearchForm extends Component {
 
     render() {
         return (
-            <div> 
+            <div>
                 <form onSubmit={(e) => this.handleCancelSubmit(e)}>
-                    <input onChange= {(e) => this.handleInputChange(e)} type='text' name= 'query' value= {this.state.query} /> 
-                    <button type='button' onClick={() => this.handleInputSubmit()}>Buscar pelicula</button>
+                    <input onChange={(e) => this.handleInputChange(e)} type='text' name='query' value={this.state.query} />
+                    <button type='button' onClick={() => this.handleInputSubmit()}>Buscar película</button>
                 </form>
-                
+
             </div>
         )
     }

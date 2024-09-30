@@ -65,11 +65,11 @@ class Cartelera extends Component {
 
         return (
             <>
-                <h1 className="titulo">Peliculas En Cartelera</h1>
-                {isLoading ? <p>Cargando</p> :
+                <h1 className="titulo">Películas En Cartelera</h1>
+                {isLoading ? <p className='cargando'>Cargando...</p> :
                     <>
                         <div className="filtro">
-                            <label>Filtrar pelicula por nombre: </label>
+                            <label>Filtrar película por nombre: </label>
                             <input type="text" onChange={(e) => this.handleFilterChange(e)} value={filterValue} />
                             <button onClick={() => this.handleResetFilter()}> Resetear el filtro </button>
                         </div>
@@ -79,7 +79,7 @@ class Cartelera extends Component {
                                 <button onClick={() => this.handleLoadMore()} className="boton-cargarMas"> Cargar Más </button>
                             </>
                         ) : (
-                            <p className='noResults'>No se encontraron resultados para su busqueda</p>
+                            <p className='noResults'>No se encontraron resultados para su búsqueda</p>
                         )}
                     </>
                 }   
